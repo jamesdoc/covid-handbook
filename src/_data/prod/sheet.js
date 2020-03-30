@@ -15,13 +15,22 @@ module.exports = () => {
       .then(response => {
         // massage the data from the Google Sheets API into
         // a shape that will more convenient for us in our SSG.
-        var data = {
-          "content": []
-        };
+        var data = {};
+
         response.data.feed.entry.forEach(item => {
-          // console.log(item.gsx$verified.$t);
           if (item.gsx$verified.$t == "TRUE" && item.gsx$title.$t != '') {
-            data.content.push({
+
+            let section = item.gsx$section.$t;
+
+            if (section == "") {
+              section = 'Uncategorised';
+            }
+
+            if (data.hasOwnProperty(section) == false) {
+              data[section] = [];
+            }
+
+            data[item.gsx$section.$t].push({
               "title": item.gsx$title.$t,
               "description": item.gsx$description.$t,
               "author": item.gsx$author.$t,

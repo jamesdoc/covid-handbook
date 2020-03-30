@@ -8,34 +8,8 @@ eleventyExcludeFromCollections: true
   <a href="{{ latestUpdate.url }}">Latest news</a>
 </p>
 
-
 <ul>
-{% for item in sheet.content %}
-  <li>
-    <hr />
-    <p>Section: {{ item.section }}</p>
-    <h1>
-      <a href="{{ item.url }}" target="_blank">{{ item.title }}</a>
-    </h1>
-
-    {% if item.section == 'Webinar' and item.date %}
-      Date: {{ item.date }}
-    {% endif %}
-
-    {% if item.description %}<p>{{ item.description }}</p>{% endif %}
-
-    <ul>
-      <li>Author: {{ item.author }}</li>
-      <li>Type: {{ item.type }}</li>
-      {% if item.tags != "" %}
-        <li>
-          Tags:
-          {% for tag in item.tags %}
-            {{ tag }}{% if loop.last == false %}, {% endif %}
-          {% endfor %}
-        </li>
-      {% endif %}
-    </ul>
-  </li>
+{% for key, item in sheet %}
+  <li><a href="{{ key | slug }}">{{ key }}</a></li>
 {% endfor %}
 </ul>

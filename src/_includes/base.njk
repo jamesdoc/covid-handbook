@@ -27,14 +27,15 @@
     <meta name="twitter:image" content="https://secondofmay.co.uk/assets/img/opengraph.jpg">
     <meta property="og:image" content="https://secondofmay.co.uk/assets/img/opengraph.jpg">
     <meta property="og:image:alt" content="{{ metadata.description }}">
-    <link rel="shortcut icon" href="favicon.svg" type="image/svg" />
+    <link rel="shortcut icon" href="/favicon.svg" type="image/svg" />
     <link rel="stylesheet" media="screen" type="text/css" href="/assets/css/main.min.css" />
   </head>
 
   <body class="no-js">
 
       <header>
-        <h1>{{ metadata.title }}</h1>
+        <h1><a href="/">{{ metadata.title }}</a></h1>
+        <p>{{ metadata.description }}</p>
       </header>
 
       <main class="centralContainer">
@@ -43,6 +44,8 @@
 
       <footer>
         The footer
+
+        All linked resources have been provided crowdsourced - we take to responsibility for external content
       </footer>
    
   </body>

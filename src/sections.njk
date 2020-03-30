@@ -1,0 +1,40 @@
+---
+layout: base.njk
+eleventyExcludeFromCollections: true
+pagination:
+    data: sheet
+    size: 1
+    alias: section
+permalink: "{{ section | slug }}/"
+---
+
+<ul>
+{% for item in sheet[section] %}
+  <li>
+    <hr />
+    <p>Section: {{ item.section }}</p>
+    <h1>
+      <a href="{{ item.url }}" target="_blank">{{ item.title }}</a>
+    </h1>
+
+    {% if item.section == 'Webinar' and item.date %}
+      Date: {{ item.date }}
+    {% endif %}
+
+    {% if item.description %}<p>{{ item.description }}</p>{% endif %}
+
+    <ul>
+      <li>Author: {{ item.author }}</li>
+      <li>Type: {{ item.type }}</li>
+      {% if item.tags != "" %}
+        <li>
+          Tags:
+          {% for tag in item.tags %}
+            {{ tag }}{% if loop.last == false %}, {% endif %}
+          {% endfor %}
+        </li>
+      {% endif %}
+    </ul>
+  </li>
+{% endfor %}
+</ul>
