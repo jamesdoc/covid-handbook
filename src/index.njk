@@ -18,8 +18,8 @@ eleventyExcludeFromCollections: true
       <a href="{{ item.url }}" target="_blank">{{ item.title }}</a>
     </h1>
 
-    {% if item.section == 'Webinar' and item.metaA %}
-      Date: {{ item.metaA }}
+    {% if item.section == 'Webinar' and item.date %}
+      Date: {{ item.date }}
     {% endif %}
 
     {% if item.description %}<p>{{ item.description }}</p>{% endif %}

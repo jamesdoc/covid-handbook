@@ -25,6 +25,7 @@ module.exports = () => {
             "url": item.gsx$url.$t,
             "type":  item.gsx$type.$t,
             "section": item.gsx$section.$t,
+            "date": item.gsx$date.$t,
             "tags": item.gsx$tags.$t.split(","),
             "metaA": item.gsx$metaa.$t,
             "metaB": item.gsx$metab.$t,
