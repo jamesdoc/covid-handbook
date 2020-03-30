@@ -4,6 +4,8 @@ const seed   = require('../../_utils/saveSeed.js');
 const sheetID = "1seP5plohulVEQOmUa4y4o8ry0Vobeg_zTzbHM_FyMAw";
 const googleSheetUrl = `https://spreadsheets.google.com/feeds/list/${sheetID}/1/public/values?alt=json`;
 
+const env = process.env.ELEVENTY_ENV;
+
 module.exports = () => {
   return new Promise((resolve, reject) => {
 
@@ -17,20 +19,23 @@ module.exports = () => {
           "content": []
         };
         response.data.feed.entry.forEach(item => {
-          // console.log(item);
-          data.content.push({
-            "title": item.gsx$title.$t,
-            "description": item.gsx$description.$t,
-            "author": item.gsx$author.$t,
-            "url": item.gsx$url.$t,
-            "type":  item.gsx$type.$t,
-            "section": item.gsx$section.$t,
-            "date": item.gsx$date.$t,
-            "tags": item.gsx$tags.$t.split(","),
-            "metaA": item.gsx$metaa.$t,
-            "metaB": item.gsx$metab.$t,
-            "metaC": item.gsx$metac.$t,
-          });
+          // console.log(item.gsx$verified.$t);
+          if (item.gsx$verified.$t == "TRUE" && item.gsx$title.$t != '') {
+            data.content.push({
+              "title": item.gsx$title.$t,
+              "description": item.gsx$description.$t,
+              "author": item.gsx$author.$t,
+              "url": item.gsx$url.$t,
+              "type":  item.gsx$type.$t,
+              "section": item.gsx$section.$t,
+              "date": item.gsx$date.$t,
+              "tags": item.gsx$tags.$t.split(","),
+            });
+
+            if (env== 'seed') {
+              console.log(`✅ Imported: ${item.gsx$title.$t}`);
+            }
+          }
         });
 
         // stash the data locally for developing without
