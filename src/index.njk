@@ -1,0 +1,9 @@
+---
+layout: base.njk
+eleventyExcludeFromCollections: true
+---
+
+<p>
+  {% set latestUpdate = collections.updates | last %}
+  <a href="{{ latestUpdate.url }}">Latest update</a>
+</p>
