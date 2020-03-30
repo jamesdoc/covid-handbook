@@ -17,7 +17,7 @@ module.exports = () => {
           "content": []
         };
         response.data.feed.entry.forEach(item => {
-          console.log(item);
+          // console.log(item);
           data.content.push({
             "title": item.gsx$title.$t,
             "description": item.gsx$description.$t,
@@ -25,6 +25,10 @@ module.exports = () => {
             "url": item.gsx$url.$t,
             "type":  item.gsx$type.$t,
             "section": item.gsx$section.$t,
+            "tags": item.gsx$tags.$t.split(","),
+            "metaA": item.gsx$metaa.$t,
+            "metaB": item.gsx$metab.$t,
+            "metaC": item.gsx$metac.$t,
           });
         });
 

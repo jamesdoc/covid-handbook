@@ -6,14 +6,13 @@
 - Imported into 11ty at build
 - Deployed to Netlify
 
-## Project setup
+## Project development
 
 - `npm install`
-
-### Compiles and hot-reloads for development
-
-- `npm run serve`
+- `npm run seed` - Pulls an inital seed set of data
+- `npm run dev`
 
 ### Compiles and minifies for production
 
-- `npm run build`
+- `npm install`
+- `npm run production`

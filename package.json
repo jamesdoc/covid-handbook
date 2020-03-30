@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "ELEVENTY_ENV=development npx @11ty/eleventy --serve --port=8080 & webpack --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "dev": "ELEVENTY_ENV=dev npx @11ty/eleventy --serve --port=8080 & webpack --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "production": "npx @11ty/eleventy & NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "seed": "ELEVENTY_ENV=seed eleventy"
   },

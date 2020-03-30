@@ -5,5 +5,38 @@ eleventyExcludeFromCollections: true
 
 <p>
   {% set latestUpdate = collections.updates | last %}
-  <a href="{{ latestUpdate.url }}">Latest update</a>
+  <a href="{{ latestUpdate.url }}">Latest news</a>
 </p>
+
+
+<ul>
+{% for item in sheet.content %}
+  <li>
+    <hr />
+    <p>Section:{{ item.section }}</p>
+    <h1>
+      <a href="{{ item.url }}" target="_blank">{{ item.title }}</a>
+    </h1>
+
+    {% if item.section == 'Webinar' and item.metaA %}
+      Date: {{ item.metaA }}
+    {% endif %}
+
+    {% if item.description %}<p>{{ item.description }}</p>{% endif %}
+
+    <ul>
+      <li>Author: {{ item.author }}</li>
+      <li>Type: {{ item.type }}</li>
+
+      {% if item.tags %}
+      <li>
+        Tags:
+        {% for tag in item.tags %}
+          {{ tag }}{% if loop.last == false %}, {% endif %}
+        {% endfor %}
+      </li>
+      {% endif %}
+    </ul>
+  </li>
+{% endfor %}
+</ul>
