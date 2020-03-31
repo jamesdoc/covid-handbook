@@ -8,8 +8,13 @@ eleventyExcludeFromCollections: true
   <a href="{{ latestUpdate.url }}">Latest news</a>
 </p>
 
-<ul>
 {% for key, item in sheet %}
-  <li><a href="{{ key | slug }}">{{ key }}</a></li>
+  <section>
+    <h1>{{ key }}</h1>
+
+    {% for resource in item %}
+      {% include './_includes/partials/resource.njk'  %}
+    {% endfor %}
+  </section>
 {% endfor %}
-</ul>
+
