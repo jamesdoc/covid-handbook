@@ -40,7 +40,7 @@ module.exports = function (eleventyConfig){
       input: "src",
       output: "dist",
       data: `_data/${env}`,
-      includes: "_includes"
+      includes: "_templates"
     },
   };
 }
