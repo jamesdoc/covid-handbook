@@ -1,5 +1,6 @@
-let mix = require('laravel-mix');
+const mix = require('laravel-mix');
 const tailwindcss = require("tailwindcss");
+require("@ayctor/laravel-mix-svg-sprite");
 
 // Set up purgeCSS to rip all the excess that Tailwind creates
 const purgecss = require("@fullhuman/postcss-purgecss")({
@@ -16,7 +17,13 @@ const paths = {
     source: './src/assets/scss/main.scss',
     dest: './dist/assets/css/',
   },
+  svg: {
+    source: './src/assets/svg/**/*.svg',
+    dest: './dist/assets/svg/sprite.svg',
+  },
 };
+
+mix.setPublicPath('dist/assets/');
 
 mix.options({
   processCssUrls: false,
@@ -33,6 +40,7 @@ mix.options({
 
 // Run mix
 mix
+  .svgSprite(paths.svg.source, paths.svg.dest)
   .sass(paths.sass.source, paths.sass.dest)
   .minify(paths.sass.dest + 'main.css')
   .sourceMaps();

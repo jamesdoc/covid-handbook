@@ -26,7 +26,6 @@ module.exports = function (eleventyConfig){
   eleventyConfig.addPassthroughCopy("src/assets/icons");
   eleventyConfig.addPassthroughCopy("src/assets/img");
   eleventyConfig.addPassthroughCopy("src/assets/fonts");
-  eleventyConfig.addPassthroughCopy("src/assets/svg");
   eleventyConfig.addPassthroughCopy({ "src/assets/static": "/" });
 
   env = (env=="seed") ? "prod" : env;
