@@ -1,0 +1,31 @@
+---
+layout: base.njk
+eleventyExcludeFromCollections: true
+title: Contributors
+---
+
+<p>
+A collection of those involved in Church Communications who have contributed and collaborated on resources and links.
+</p>
+
+<h2>Content</h2>
+
+<ul>
+{% for c in contributors %}
+  {% if 'content' in c.role %}
+    <li><a href="{{ c.url }}">{{ c.name }}</a> - {{ c.desc}}</li>
+  {% endif %}
+{% endfor %}
+</ul>
+
+<h2>Tech</h2>
+
+<ul>
+{% for c in contributors %}
+  {% if 'tech' in c.role %}
+    <li><a href="{{ c.url }}">{{ c.name }}</a> - {{ c.desc }}</li>
+  {% endif %}
+{% endfor %}
+</ul>
+
+<p>Site built with Eleventy, Google Sheets, and Netlify. <a href="https://bitbucket.org/onesheep/covid-churches-handbook/src/master/">View source</a>.</p>
