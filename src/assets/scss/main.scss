@@ -1,3 +1,8 @@
-body {
-  background-color: #829ae0;
-}
+/* purgecss start ignore */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+/* purgecss end ignore */
+
+@import "resource";
+
+@import "tailwindcss/utilities";

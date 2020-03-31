@@ -8,6 +8,10 @@ module.exports = function (eleventyConfig){
     return DateTime.fromJSDate(dateObj).toFormat("dd LLLL yyyy");
   });
 
+  eleventyConfig.addFilter("dewidow", s => {
+    return s.replace(/ (?=[^ ]*$)/i, "&nbsp;");
+  });
+
   // Set up updates collection
   eleventyConfig.addCollection("updates", function (collection) {
     return collection.getAllSorted().filter(function (item) {
@@ -22,7 +26,6 @@ module.exports = function (eleventyConfig){
   eleventyConfig.addPassthroughCopy("src/assets/icons");
   eleventyConfig.addPassthroughCopy("src/assets/img");
   eleventyConfig.addPassthroughCopy("src/assets/fonts");
-  eleventyConfig.addPassthroughCopy("src/assets/svg");
   eleventyConfig.addPassthroughCopy({ "src/assets/static": "/" });
 
   env = (env=="seed") ? "prod" : env;
@@ -37,7 +40,7 @@ module.exports = function (eleventyConfig){
       input: "src",
       output: "dist",
       data: `_data/${env}`,
-      includes: "_includes"
+      includes: "_templates"
     },
   };
 }
