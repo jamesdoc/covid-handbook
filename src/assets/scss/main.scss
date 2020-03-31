@@ -1,3 +1,10 @@
+/* purgecss start ignore */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+/* purgecss end ignore */
+
 body {
-  background-color: #829ae0;
+  background-color: #5b70ad;
 }
+
+@import "tailwindcss/utilities";
