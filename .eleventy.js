@@ -19,8 +19,8 @@ module.exports = function (eleventyConfig){
     });
   });
 
-  eleventyConfig.addLayoutAlias('default', 'base.njk')
-  eleventyConfig.addLayoutAlias('post', 'post.njk')
+  eleventyConfig.addLayoutAlias('default', 'templates/base.njk')
+  eleventyConfig.addLayoutAlias('post', 'templates/post.njk')
 
   // Assets pass-through
   eleventyConfig.addPassthroughCopy("src/assets/icons");
@@ -40,7 +40,7 @@ module.exports = function (eleventyConfig){
       input: "src",
       output: "dist",
       data: `_data/${env}`,
-      includes: "_templates"
+      includes: "_includes"
     },
   };
 }

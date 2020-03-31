@@ -1,5 +1,5 @@
 ---
-layout: base.njk
+layout: default
 eleventyExcludeFromCollections: true
 pagination:
   data: sheet
@@ -7,14 +7,14 @@ pagination:
   alias: section
 permalink: "{{ section | slug }}/"
 ---
-{% import "./_macro/svg.njk" as svg %}
+{% import "./_includes/macro/svg.njk" as svg %}
 
 <h1>{{ section }}</h1>
 
 {% for item in sheet[section] %}
   <a href="{{ item.url }}" target="_blank" class="resource">
     <h2>
-      {{ item.title | dewidow  | safe }}
+      {{ item.title | dewidow | safe }}
     </h2>
 
     {% if item.section == 'Webinar' and item.date %}
