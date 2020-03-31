@@ -1,0 +1,25 @@
+.resource {
+  @apply block p-6 border-grey border-solid border-b-2;
+  transition: background-color .2s;
+
+  &:last-child {
+    @apply border-b-0;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  &__meta {
+    @apply text-grey-darker;
+    transition: color .2s;
+  }
+
+  &:hover {
+    @apply bg-salmon;
+
+    .resource__meta {
+      @apply text-white;
+    }
+  }
+}

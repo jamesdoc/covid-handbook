@@ -8,6 +8,10 @@ module.exports = function (eleventyConfig){
     return DateTime.fromJSDate(dateObj).toFormat("dd LLLL yyyy");
   });
 
+  eleventyConfig.addFilter("dewidow", s => {
+    return s.replace(/ (?=[^ ]*$)/i, "&nbsp;");
+  });
+
   // Set up updates collection
   eleventyConfig.addCollection("updates", function (collection) {
     return collection.getAllSorted().filter(function (item) {

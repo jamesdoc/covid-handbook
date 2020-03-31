@@ -3,8 +3,6 @@
 @import "tailwindcss/components";
 /* purgecss end ignore */
 
-body {
-  background-color: #5b70ad;
-}
+@import "resource";
 
 @import "tailwindcss/utilities";

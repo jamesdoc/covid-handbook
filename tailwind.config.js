@@ -5,7 +5,12 @@ module.exports = {
         colors: {
             transparent: 'transparent',
             black: '#1f1f20',
+            grey: {
+              default: '#cccccc',
+              darker: '#717171',
+            },
             white: '#ffffff',
+            salmon: '#fd8979',
         },
         container: {
             center: true,

@@ -8,14 +8,13 @@ pagination:
 permalink: "{{ section | slug }}/"
 ---
 
-<ul>
+<h1>{{ section }}</h1>
+
 {% for item in sheet[section] %}
-  <li>
-    <hr />
-    <p>Section: {{ item.section }}</p>
-    <h1>
-      <a href="{{ item.url }}" target="_blank">{{ item.title }}</a>
-    </h1>
+  <a href="{{ item.url }}" target="_blank" class="resource">
+    <h2>
+      {{ item.title | dewidow  | safe }}
+    </h2>
 
     {% if item.section == 'Webinar' and item.date %}
       Date: {{ item.date }}
@@ -23,7 +22,7 @@ permalink: "{{ section | slug }}/"
 
     {% if item.description %}<p>{{ item.description }}</p>{% endif %}
 
-    <ul>
+    <ul class="resource__meta">
       <li>Author: {{ item.author }}</li>
       <li>Type: {{ item.type }}</li>
       {% if item.tags != "" %}
@@ -35,6 +34,5 @@ permalink: "{{ section | slug }}/"
         </li>
       {% endif %}
     </ul>
-  </li>
+  </a>
 {% endfor %}
-</ul>
