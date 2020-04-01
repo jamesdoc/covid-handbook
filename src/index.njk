@@ -14,7 +14,7 @@ eleventyExcludeFromCollections: true
     </div>
     #}
 
-    <div x-show="!query">Displaying all {{ sheet | length }} resources</div>
+    <div x-show="!query">Displaying all {{ sheet | countResources }} resources</div>
     <div x-show="!!query">Displaying all <span x-text="filteredItems().length"></span> resources</div>
 
     <nav class="sectionNav">
