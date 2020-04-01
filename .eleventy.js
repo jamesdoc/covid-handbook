@@ -12,6 +12,14 @@ module.exports = function (eleventyConfig){
     return s.replace(/ (?=[^ ]*$)/i, "&nbsp;");
   });
 
+  eleventyConfig.addFilter("countResources", obj => {
+    i = 0;
+    Object.keys(obj).map(function(key, index) {
+      i += obj[key].length;
+    });
+    return i;
+  })
+
   // Set up updates collection
   eleventyConfig.addCollection("updates", function (collection) {
     return collection.getAllSorted().filter(function (item) {
