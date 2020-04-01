@@ -1,0 +1,12 @@
+.resourceContainer {
+  @apply grid col-gap-8;
+  grid-template-columns: 200px auto;
+
+  &__sidebar {
+    @apply border-grey border-solid border-r-2;
+  }
+
+  &__mainList {
+    
+  }
+}

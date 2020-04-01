@@ -1,0 +1,13 @@
+.siteHeader {
+
+  @apply border-solid border-black border-b-2;
+
+  h1 {
+    @apply uppercase font-oswald text-base leading-none;
+  }
+
+  a {
+    @apply block no-underline p-2;
+    max-width: 110px;
+  }
+}

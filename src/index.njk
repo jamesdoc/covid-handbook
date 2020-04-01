@@ -5,45 +5,66 @@ eleventyExcludeFromCollections: true
 
 {% include './_includes/partials/infobar.njk' %}
 
-<p>
-  {% set latestUpdate = collections.updates | last %}
-  <a href="{{ latestUpdate.url }}">Latest news</a>
-</p>
+<section class="resourceContainer">
+  <aside class="resourceContainer__sidebar">
+    {#
+    <div>
+      <a href="#">Add resource</a>
+    </div>
+    #}
 
-<section id="filter">
-  <input type="text" class="border-b" placeholder="SEARCH" x-model="query" />
-</section>
+    <div>Displaying all {{ sheet | length }} resources</div>
 
-<div x-show="!!query">
-  <p>Showing search results for <span x-html="query"></span></p>
-  <template x-for="section in filteredSections()" :key="section.name">
-    <div x-show="section.items.length > 0">
-      <h2 x-text="section.name" :id="slugify(section.name)"></h2>
+    <nav class="sectionNav">
+      <ul>
+        {% for key, item in sheet %}
+        <li>
+          <a href="#{{ key | slug }}" class="sectionNav__link">
+            {{ key }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </aside>
 
-      <template x-for="item in section.items" :key="item.title">
-        <a :href="item.url" target="_blank" class="resource">
-          <h2 x-text="item.title"></h2>
+  <main class="resourceContainer__mailList">
+    <section id="filter">
+      <input type="text" class="border-b" placeholder="SEARCH" x-model="query" />
+    </section>
 
-          <span x-show="item.date">Date: <span x-text="item.date"></span></span>
-          <p x-show="item.description" x-text="item.description"></p>
+    <div x-show="!!query">
+      <p>Showing search results for <span x-html="query"></span></p>
+      <template x-for="section in filteredSections()" :key="section.name">
+        <div x-show="section.items.length > 0">
+          <h2 x-text="section.name" :id="slugify(section.name)"></h2>
 
-          <ul class="resource__meta">
-            <li>Author: <span x-text="item.author"></span></li>
-            <li>Type: <span x-text="item.type"></span></li>
-            <li x-show="!!tags(item)">Tags: <span x-text="tags(item)"></span></li>
-          </ul>
-        </a>
+          <template x-for="item in section.items" :key="item.title">
+            <a :href="item.url" target="_blank" class="resource">
+              <h2 x-text="item.title"></h2>
+
+              <span x-show="item.date">Date: <span x-text="item.date"></span></span>
+              <p x-show="item.description" x-text="item.description"></p>
+
+              <ul class="resource__meta">
+                <li>Author: <span x-text="item.author"></span></li>
+                <li>Type: <span x-text="item.type"></span></li>
+                <li x-show="!!tags(item)">Tags: <span x-text="tags(item)"></span></li>
+              </ul>
+            </a>
+          </template>
+        </div>
       </template>
     </div>
-  </template>
-</div>
 
-<div x-show="!query">
-  {% for key, item in sheet %}
-  <section>
-    <h1 id="{{ key | slug }}">{{ key }}</h1>
+    <div x-show="!query">
+      {% for key, item in sheet %}
+      <section id="{{ key | slug }}">
+        <h1>{{ key }}</h1>
 
-    {% for resource in item %} {% include './_includes/partials/resource.njk' %} {% endfor %}
-  </section>
-  {% endfor %}
-</div>
+        {% for resource in item %} {% include './_includes/partials/resource.njk' %} {% endfor %}
+      </section>
+      {% endfor %}
+    </div>
+  </main>
+</section>
