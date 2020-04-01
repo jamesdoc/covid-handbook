@@ -1,50 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
 
     <title>{% if title %}{{ title }} | {% endif %}{{ metadata.title }}</title>
 
     <link rel="author" href="humans.txt" />
 
     <meta name="description" content="{{ intro if intro else metadata.description }}" />
-    <meta itemprop="description" content="{{ intro if intro else metadata.description }}">
+    <meta itemprop="description" content="{{ intro if intro else metadata.description }}" />
 
     <meta property="og:title" content="{{ metadata.title }}{% if title %} - {{ title }}{% endif %}" />
 
-    <meta name="format-detection" content="telephone=no">
-    <meta property="og:site_name" content="{{ metadata.title }}">
-    <meta property="og:title" content="{{ metadata.title }}">
-    <meta property="og:url" content="{{ metadata.rootUrl }}">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="{{ metadata.rootUrl }}">
-    <meta name="twitter:title" content="{{ metadata.title }}">
-    <meta name="twitter:description" content="{{ metadata.description }}">
-    <meta property="og:description" content="{{ metadata.description }}">
-    <meta name="twitter:image" content="{{ metadata.ogImage }}">
-    <meta property="og:image" content="{{ metadata.ogImage }}">
-    <meta property="og:image:alt" content="{{ metadata.description }}">
+    <meta name="format-detection" content="telephone=no" />
+    <meta property="og:site_name" content="{{ metadata.title }}" />
+    <meta property="og:title" content="{{ metadata.title }}" />
+    <meta property="og:url" content="{{ metadata.rootUrl }}" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="{{ metadata.rootUrl }}" />
+    <meta name="twitter:title" content="{{ metadata.title }}" />
+    <meta name="twitter:description" content="{{ metadata.description }}" />
+    <meta property="og:description" content="{{ metadata.description }}" />
+    <meta name="twitter:image" content="{{ metadata.ogImage }}" />
+    <meta property="og:image" content="{{ metadata.ogImage }}" />
+    <meta property="og:image:alt" content="{{ metadata.description }}" />
     <link rel="shortcut icon" href="/favicon.svg" type="image/svg" />
     <link rel="stylesheet" media="screen" type="text/css" href="/assets/css/main.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="/assets/app.js"></script>
   </head>
 
   <body class="no-js">
+    <header>
+      <h1>
+        <a href="/">{{ metadata.title }}</a>
+      </h1>
+      <p>{{ metadata.description }}</p>
+    </header>
 
-      <header>
-        <h1><a href="/">{{ metadata.title }}</a></h1>
-        <p>{{ metadata.description }}</p>
-      </header>
+    <main class="centralContainer" x-data="store()" x-init="init()">
+      {{ layoutContent | safe }}
+    </main>
 
-      <main class="centralContainer">
-        {{ layoutContent | safe }}
-      </main>
-
-      <footer>
-        All linked resources have been provided crowdsourced (see <a href="/contributors">contributors</a>) - we take to responsibility for external content
-      </footer>
-   
+    <footer>
+      All linked resources have been provided crowdsourced (see <a href="/contributors">contributors</a>) - we take to
+      responsibility for external content
+    </footer>
   </body>
 </html>

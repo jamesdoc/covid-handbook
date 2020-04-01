@@ -1,7 +1,6 @@
-// window.data = require("../../_data/dev/sheet.json");
 const data = require("../../_data/dev/sheet.json");
 
-window.listing = function() {
+window.store = function() {
   return {
     sections: [],
     items: [],
@@ -14,7 +13,6 @@ window.listing = function() {
       });
 
       this.sections.forEach(s => console.log(s));
-      //   console.log(this.sections);
       //   console.log(window.data["Starters Guide"][0].title);
     }
   };
