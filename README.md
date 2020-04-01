@@ -63,7 +63,8 @@ function triggerDeploy() {
 ### Compiles and minifies for production
 
 - `npm install`
-- `npm run production`
+- `npm run seed`
+- `npm run buildAssets`
 
 ## Datasources
 

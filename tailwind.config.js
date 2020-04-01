@@ -16,7 +16,8 @@ module.exports = {
             center: true,
         },
         fontFamily: {
-            barlow: [...defaultTheme.fontFamily.sans],
+          rubik: ["Rubik", ...defaultTheme.fontFamily.sans],
+          oswald: ["Oswald", ...defaultTheme.fontFamily.sans],
         },
         fontWeight: {
             normal: 400,
