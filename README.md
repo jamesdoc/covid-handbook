@@ -71,3 +71,7 @@ function triggerDeploy() {
 Eleventy pulls in the list of resources from a Google Sheet (see `src/data/prod/sheet.js`). In development you can seed this by running `npm run seed`.
 
 Additional data (site metadata, google tag manager id, contributors, etc) is set in `src/src/shared/generalData.json`
+
+### ⚠️ Warning
+
+The JSON endpoint provided by the Google Sheet will stop providing data as soon as it hits an empty row. You have been warned.
