@@ -7,21 +7,26 @@ eleventyExcludeFromCollections: true
 {% include './_includes/partials/infobar.njk' %}
 
 <section class="resourceContainer">
-  <aside class="resourceContainer__sidebar">
+  <aside class="resourceContainer__sidebar" x-show.transition.origin.top.center="navDisplayed">
     {#
     <div>
       <a href="#">Add resource</a>
     </div>
     #}
 
-    <div x-show="!query">Displaying all {{ sheet | countResources }} resources</div>
-    <div x-show="!!query">Displaying all <span x-text="filteredItems().length"></span> resources</div>
+    <div class="resourceContainer__sidebar__resourceCount resourceContainer__sidebar__resourceCount--no-js">
+      There are {{ sheet | countResources }} resources available
+    </div>
+
+    <div class="resourceContainer__sidebar__resourceCount resourceContainer__sidebar__resourceCount--js">
+      Listing <span x-text="filteredItems().length ? `${filteredItems().length} of `:''"></span>{{ sheet | countResources }} resources
+    </div>
 
     <nav class="sectionNav">
       <ul x-show="!query">
         {% for key, item in sheet %}
         <li>
-          <a href="#{{ key | slug }}" class="sectionNav__link">
+          <a href="#{{ key | slug }}" class="sectionNav__link" @click.away="navDisplayed = false"">
             {{ key }}
           </a>
         </li>

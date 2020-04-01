@@ -1,5 +1,5 @@
 .resource {
-  @apply block relative p-4 border-grey border-solid border-b-2;
+  @apply block relative p-4 border-grey border-solid border-b-2 overflow-hidden;
   transition: background-color .2s;
 
   &:last-child {
