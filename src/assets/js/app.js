@@ -7,7 +7,18 @@ window.store = function() {
     query: null,
 
     filteredItems() {
+      if (!this.query) return [];
       return this.items.filter(s => s.title.toLowerCase().indexOf(this.query.toLowerCase()) !== -1);
+    },
+
+    tags(item) {
+      if (item.tags && !item.tags[0]) return "";
+      return "Tags: " + item.tags.join(", ");
+    },
+
+    showDate(item) {
+      if (!item.date) return false;
+      return item.section == "Webinar";
     },
 
     init() {

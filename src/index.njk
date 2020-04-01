@@ -15,7 +15,18 @@ eleventyExcludeFromCollections: true
 <div x-show="!!query">
   <p>Showing search results for <span x-html="query"></span></p>
   <template x-for="item in filteredItems()" :key="item.title">
-    <div x-text="item.title"></div>
+    <a href="{{ resource.url }}" target="_blank" class="resource">
+      <h2 x-text="item.title"></h2>
+
+      <span x-show="showDate(item)">Date: <span x-text="item.date"></span></span>
+      <p x-show="item.description" x-text="item.description"></p>
+
+      <ul class="resource__meta">
+        <li>Author: <span x-text="item.author"></span></li>
+        <li>Type: <span x-text="item.type"></span></li>
+        <li x-show="!!tags(item)"><span x-text="tags(item)"></span></li>
+      </ul>
+    </a>
   </template>
 </div>
 
