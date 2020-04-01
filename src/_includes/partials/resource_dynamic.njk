@@ -1,0 +1,16 @@
+{# NOTE: This layout needs to keep in step with resource.njk #} {% import "../macro/svg.njk" as svg %}
+
+<a :href="item.url" target="_blank" class="resource">
+  <h2 x-text="item.title"></h2>
+
+  <span x-show="item.date">Date: <span x-text="item.date"></span></span>
+  <p x-show="item.description" x-text="item.description"></p>
+
+  <ul class="resource__meta">
+    <li>Contributor: <span x-text="item.contributor"></span></li>
+    <li>Type: <span x-text="item.type"></span></li>
+    <li x-show="!!tags(item)">Tags: <span x-text="tags(item)"></span></li>
+  </ul>
+
+  {{ svg.sprite("external", "resource__icon") }}
+</a>

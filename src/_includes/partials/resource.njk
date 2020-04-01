@@ -1,4 +1,4 @@
-{% import "../macro/svg.njk" as svg %}
+{# NOTE: This layout needs to keep in step with resource_dynamic.njk #} {% import "../macro/svg.njk" as svg %}
 <a href="{{ resource.url }}" target="_blank" class="resource">
   <h2>
     {{ resource.title | dewidow | safe }}
@@ -9,7 +9,7 @@
   {% endif %}
 
   <ul class="resource__meta">
-    <li>Author: {{ resource.author }}</li>
+    <li>Contributor: {{ resource.contributor }}</li>
     <li>Type: {{ resource.type }}</li>
     {% if resource.tags != "" %}
     <li>
