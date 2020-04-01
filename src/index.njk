@@ -3,10 +3,7 @@ layout: default
 eleventyExcludeFromCollections: true
 ---
 
-<section class="infoBar">
-  <p>{{ metadata.description }}</p>
-  <a href="#">Read more about Digital Tools for the Church</a>
-</section>
+{% include './_includes/partials/infobar.njk' %}
 
 <p>
   {% set latestUpdate = collections.updates | last %}
