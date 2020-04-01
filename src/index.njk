@@ -5,39 +5,64 @@ eleventyExcludeFromCollections: true
 
 {% include './_includes/partials/infobar.njk' %}
 
-<p>
-  {% set latestUpdate = collections.updates | last %}
-  <a href="{{ latestUpdate.url }}">Latest news</a>
-</p>
+<section class="resourceContainer">
 
-<section id="filter">
-  <input type="text" class="border-b" placeholder="SEARCH" x-model="query" />
-</section>
+  <aside class="resourceContainer__sidebar">
 
-<div x-show="!!query">
-  <p>Showing search results for <span x-html="query"></span></p>
-  <template x-for="item in filteredItems()" :key="item.title">
-    <a href="{{ resource.url }}" target="_blank" class="resource">
-      <h2 x-text="item.title"></h2>
+    {# <div>
+      <a href="#">Add resource</a>
+    </div> #}
 
-      <span x-show="item.date">Date: <span x-text="item.date"></span></span>
-      <p x-show="item.description" x-text="item.description"></p>
+    <div>
+      Displaying all {{ sheet | length }} resources
+    </div>
 
-      <ul class="resource__meta">
-        <li>Author: <span x-text="item.author"></span></li>
-        <li>Type: <span x-text="item.type"></span></li>
-        <li x-show="!!tags(item)">Tags: <span x-text="tags(item)"></span></li>
+    <nav class="sectionNav">
+      <ul>
+        {% for key, item in sheet %}
+          <li>
+            <a href="#{{ key | slug }}" class="sectionNav__link">
+              {{ key }}
+            </a>
+          </li>
+        {% endfor %}
       </ul>
-    </a>
-  </template>
-</div>
+    </nav>
+  </aside>
 
-<div x-show="!query">
-  {% for key, item in sheet %}
-  <section>
-    <h1>{{ key }}</h1>
+  <main class="resourceContainer__mailList">
+    <section id="filter">
+      <input type="text" class="border-b" placeholder="SEARCH" x-model="query" />
+    </section>
 
-    {% for resource in item %} {% include './_includes/partials/resource.njk' %} {% endfor %}
-  </section>
-  {% endfor %}
-</div>
+    <div x-show="!!query">
+      <p>Showing search results for <span x-html="query"></span></p>
+      <template x-for="item in filteredItems()" :key="item.title">
+        <a href="{{ resource.url }}" target="_blank" class="resource">
+          <h2 x-text="item.title"></h2>
+
+          <span x-show="item.date">Date: <span x-text="item.date"></span></span>
+          <p x-show="item.description" x-text="item.description"></p>
+
+          <ul class="resource__meta">
+            <li>Author: <span x-text="item.author"></span></li>
+            <li>Type: <span x-text="item.type"></span></li>
+            <li x-show="!!tags(item)">Tags: <span x-text="tags(item)"></span></li>
+          </ul>
+        </a>
+      </template>
+    </div>
+
+    <div x-show="!query">
+      {% for key, item in sheet %}
+      <section id="{{ key | slug }}">
+        <h1>{{ key }}</h1>
+
+        {% for resource in item %} {% include './_includes/partials/resource.njk' %} {% endfor %}
+      </section>
+      {% endfor %}
+    </div>
+
+  </main>
+
+</section>

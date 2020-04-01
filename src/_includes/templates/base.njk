@@ -34,13 +34,15 @@
   </head>
 
   <body class="no-js">
-    <header>
-      <h1><a href="/">{{ metadata.title }}</a></h1>
+    <header class="siteHeader">
+      <h1>
+        <a href="/">{{ metadata.title }}</a>
+      </h1>
     </header>
 
-    <main class="centralContainer" x-data="store()" x-init="init()">
+    <div class="centralContainer" x-data="store()" x-init="init()">
       {{ layoutContent | safe }}
-    </main>
+    </div>
 
     <footer>
       All linked resources have been provided crowdsourced (see <a href="/contributors">contributors</a>) - we take no
