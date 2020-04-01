@@ -34,7 +34,6 @@ eleventyExcludeFromCollections: true
     </section>
 
     <div x-show="!!query">
-      <p>Showing search results for <span x-html="query"></span></p>
       <template x-for="section in filteredSections()" :key="section.name">
         <div x-show="section.items.length > 0">
           <h2 x-text="section.name" :id="slugify(section.name)"></h2>

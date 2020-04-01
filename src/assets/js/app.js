@@ -60,10 +60,6 @@ window.store = function() {
         }
       });
 
-      this.query = "church";
-      let test = this.filteredSections();
-      console.log(test);
-
       //   this.sections.forEach(s => console.log(s));
       //   this.items.forEach(s => console.log(s.title));
       //   console.log(window.data["Starters Guide"][0].title);
