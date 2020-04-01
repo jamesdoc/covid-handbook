@@ -1,3 +1,5 @@
+// import { shareResource } from './resourceActions';
+
 const data = require("../../_data/dev/sheet.json");
 
 window.store = function() {
@@ -51,6 +53,12 @@ window.store = function() {
         .replace(/\-\-+/g, "-") // Replace multiple - with single -
         .replace(/^-+/, "") // Trim - from start of text
         .replace(/-+$/, ""); // Trim - from end of text
+    },
+
+    shareResource(ev) {
+      const el = ev.target; // Careful, might be the SVG, not the <button>
+      const shareSheet = el.closest('.resource').querySelector('.shareSheet');
+      shareSheet.classList.toggle('shareSheet--open');
     },
 
     init() {

@@ -1,0 +1,54 @@
+.shareSheet {
+  @apply flex flex-wrap hidden;
+
+  &--open {
+    @apply flex flex-col absolute bg-white p-2 border border-salmon;
+    top: 1rem;
+    right: 2.5rem;
+
+    &:after {
+      @apply absolute w-0 h-0 border-10 border-solid bg-transparent;
+      content: "";
+      border-color: transparent transparent transparent salmon;
+      top: 0.5rem;
+      right: -20px;
+    }
+
+    span:last-child {
+      @apply flex justify-around;
+    }
+  }
+
+  &__label {
+    @apply mr-2;
+  }
+
+  &__service {
+    @apply no-underline inline-block;
+
+    &:hover {
+      .shareSheet__service__icon {
+        @apply text-salmon;
+      }
+    }
+  }
+
+  &__service__label {
+    @include visuallyHidden;
+  }
+
+  &__service__icon {
+    @apply h-4 w-4 inline-block mx-2 text-grey-darker;
+
+    &:first-child {
+      @apply ml-0;
+    }
+
+    @screen md {
+      @apply h-6 w-6 mx-4;
+    }
+  }
+}
+.no-js .shareSheet {
+  @apply block;
+}

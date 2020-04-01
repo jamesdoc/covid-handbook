@@ -3,6 +3,10 @@ const { theme } = require("./config.js");
 
 module.exports = {
   theme: {
+    borderWidth: {
+      '10': '10px',
+      ...defaultTheme.borderWidth,
+    },
     colors: {
       transparent: "transparent",
       black: "#1f1f20",
