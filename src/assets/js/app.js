@@ -13,12 +13,7 @@ window.store = function() {
 
     tags(item) {
       if (item.tags && !item.tags[0]) return "";
-      return "Tags: " + item.tags.join(", ");
-    },
-
-    showDate(item) {
-      if (!item.date) return false;
-      return item.section == "Webinar";
+      return item.tags.join(", ");
     },
 
     init() {

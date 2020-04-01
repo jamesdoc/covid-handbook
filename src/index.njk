@@ -20,13 +20,13 @@ eleventyExcludeFromCollections: true
     <a href="{{ resource.url }}" target="_blank" class="resource">
       <h2 x-text="item.title"></h2>
 
-      <span x-show="showDate(item)">Date: <span x-text="item.date"></span></span>
+      <span x-show="item.date">Date: <span x-text="item.date"></span></span>
       <p x-show="item.description" x-text="item.description"></p>
 
       <ul class="resource__meta">
         <li>Author: <span x-text="item.author"></span></li>
         <li>Type: <span x-text="item.type"></span></li>
-        <li x-show="!!tags(item)"><span x-text="tags(item)"></span></li>
+        <li x-show="!!tags(item)">Tags: <span x-text="tags(item)"></span></li>
       </ul>
     </a>
   </template>
