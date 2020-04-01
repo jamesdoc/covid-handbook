@@ -38,8 +38,8 @@ eleventyExcludeFromCollections: true
 
     <div x-show="!!query">
       <template x-for="section in filteredSections()" :key="section.name">
-        <div x-show="section.items.length > 0">
-          <h2 x-text="section.name" :id="slugify(section.name)"></h2>
+        <section x-show="section.items.length > 0" class="resourceContainer__mainList__section">
+          <h1 x-text="section.name" :id="slugify(section.name)"></h1>
 
           <template x-for="item in section.items" :key="item.title">
             <a :href="item.url" target="_blank" class="resource">
@@ -55,13 +55,13 @@ eleventyExcludeFromCollections: true
               </ul>
             </a>
           </template>
-        </div>
+        </section>
       </template>
     </div>
 
     <div x-show="!query">
       {% for key, item in sheet %}
-      <section id="{{ key | slug }}">
+      <section id="{{ key | slug }}" class="resourceContainer__mainList__section">
         <h1>{{ key }}</h1>
 
         {% for resource in item %} {% include './_includes/partials/resource.njk' %} {% endfor %}

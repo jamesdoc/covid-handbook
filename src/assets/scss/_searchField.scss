@@ -2,7 +2,7 @@
   @apply py-4 relative;
 
   &__input {
-    @apply border-b font-oswald text-lg text-grey-darker outline-none appearance-none w-full px-2;
+    @apply border-b font-oswald text-lg text-grey-darker outline-none appearance-none w-full;
 
     &:focus,
     &:hover {

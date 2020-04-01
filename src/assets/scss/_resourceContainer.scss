@@ -9,4 +9,11 @@
   &__mainList {
     @apply pr-8;
   }
+
+  &__mainList__section {
+    h1 {
+      @apply font-oswald uppercase text-4xl leading-none;
+      max-width: 200px;
+    }
+  }
 }
