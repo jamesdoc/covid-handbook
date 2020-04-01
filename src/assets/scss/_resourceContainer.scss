@@ -1,19 +1,57 @@
 .resourceContainer {
-  @apply grid col-gap-8;
-  grid-template-columns: 200px auto;
+
+  @apply flex flex-col relative;
+
+  @screen sm {
+    @apply grid col-gap-8;
+    grid-template-columns: 200px auto;
+  }
 
   &__sidebar {
-    @apply border-grey border-solid border-r-2;
+    @apply w-full absolute inset-y-0 z-10 bg-white;
+    background-color: #ffffffe0;
+    backdrop-filter: blur(2px);
+
+    @screen sm {
+      @apply relative border-grey border-solid border-r-2;
+      display: block !important; // Hack to override alpineJS: revisit
+    }
+  }
+
+  &__sidebar__resourceCount {
+    @apply text-sm;
+
+    &--no-js {
+      @apply hidden;
+    }
   }
 
   &__mainList {
-    @apply pr-8;
+    @apply px-4;
+
+    @screen sm {
+      @apply pl-0 pr-8;
+    }
   }
 
   &__mainList__section {
+    @apply pt-4;
+    
     h1 {
       @apply font-oswald uppercase text-4xl leading-none;
       max-width: 200px;
     }
   }
+}
+
+.no-js .resourceContainer__sidebar {
+  @apply relative border-b-2 mb-2 pb-2;
+}
+
+.no-js .resourceContainer__sidebar__resourceCount--js {
+  @apply hidden;
+}
+
+.no-js .resourceContainer__sidebar__resourceCount--no-js {
+  @apply block;
 }

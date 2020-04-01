@@ -2,6 +2,7 @@ const data = require("../../_data/dev/sheet.json");
 
 window.store = function() {
   return {
+    navDisplayed: false,
     sections: [],
     items: [],
     query: null,

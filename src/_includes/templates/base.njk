@@ -1,3 +1,4 @@
+{% import "../macro/svg.njk" as svg %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,14 +34,29 @@
     <script src="/assets/app.js"></script>
   </head>
 
-  <body class="no-js">
+  <body class="no-js" x-data="store()" x-init="init()">
     <header class="siteHeader">
       <h1>
         <a href="/">{{ metadata.title }}</a>
       </h1>
+
+      <button class="siteHeader__navToggle" @click="navDisplayed = !navDisplayed">
+        <template x-if="navDisplayed">
+          <div>
+            <span>Close</span>
+            {{ svg.sprite("close") }}
+          </div>
+        </template>
+        <template x-if="!navDisplayed">
+          <div>
+            <span>Menu</span>
+            {{ svg.sprite("menu") }}
+          </div>
+        </template>
+      </a>
     </header>
 
-    <div class="centralContainer" x-data="store()" x-init="init()">
+    <div class="centralContainer">
       {{ layoutContent | safe }}
     </div>
 
@@ -48,5 +64,7 @@
       All linked resources have been provided crowdsourced (see <a href="/contributors">contributors</a>) - we take no
       responsibility for external content.
     </footer>
+
+    <script>document.body.classList.remove("no-js");</script>
   </body>
 </html>

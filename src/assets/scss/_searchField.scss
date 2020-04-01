@@ -22,3 +22,7 @@
     transform: color .2s;
   }
 }
+
+.no-js .searchField {
+  display: none;
+}
