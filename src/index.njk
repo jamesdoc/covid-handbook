@@ -8,13 +8,23 @@ eleventyExcludeFromCollections: true
   <a href="{{ latestUpdate.url }}">Latest news</a>
 </p>
 
-{% for key, item in sheet %}
+<section id="filter">
+  <input type="text" x-model="query" />
+</section>
+
+<div x-show="!!query">
+  <p>Showing search results for <span x-html="query"></span></p>
+  <template x-for="item in filteredItems()" :key="item.title">
+    <div x-text="item.title"></div>
+  </template>
+</div>
+
+<div x-show="!query">
+  {% for key, item in sheet %}
   <section>
     <h1>{{ key }}</h1>
 
-    {% for resource in item %}
-      {% include './_includes/partials/resource.njk'  %}
-    {% endfor %}
+    {% for resource in item %} {% include './_includes/partials/resource.njk' %} {% endfor %}
   </section>
-{% endfor %}
-
+  {% endfor %}
+</div>
