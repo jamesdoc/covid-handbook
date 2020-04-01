@@ -1,15 +1,68 @@
 ---
-layout: base.njk
+layout: default
 eleventyExcludeFromCollections: true
 ---
 
-<p>
-  {% set latestUpdate = collections.updates | last %}
-  <a href="{{ latestUpdate.url }}">Latest news</a>
-</p>
+{% include './_includes/partials/infobar.njk' %}
 
-<ul>
-{% for key, item in sheet %}
-  <li><a href="{{ key | slug }}">{{ key }}</a></li>
-{% endfor %}
-</ul>
+<section class="resourceContainer">
+
+  <aside class="resourceContainer__sidebar">
+
+    {# <div>
+      <a href="#">Add resource</a>
+    </div> #}
+
+    <div>
+      Displaying all {{ sheet | length }} resources
+    </div>
+
+    <nav class="sectionNav">
+      <ul>
+        {% for key, item in sheet %}
+          <li>
+            <a href="#{{ key | slug }}" class="sectionNav__link">
+              {{ key }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="resourceContainer__mailList">
+    <section id="filter">
+      <input type="text" class="border-b" placeholder="SEARCH" x-model="query" />
+    </section>
+
+    <div x-show="!!query">
+      <p>Showing search results for <span x-html="query"></span></p>
+      <template x-for="item in filteredItems()" :key="item.title">
+        <a href="{{ resource.url }}" target="_blank" class="resource">
+          <h2 x-text="item.title"></h2>
+
+          <span x-show="item.date">Date: <span x-text="item.date"></span></span>
+          <p x-show="item.description" x-text="item.description"></p>
+
+          <ul class="resource__meta">
+            <li>Author: <span x-text="item.author"></span></li>
+            <li>Type: <span x-text="item.type"></span></li>
+            <li x-show="!!tags(item)">Tags: <span x-text="tags(item)"></span></li>
+          </ul>
+        </a>
+      </template>
+    </div>
+
+    <div x-show="!query">
+      {% for key, item in sheet %}
+      <section id="{{ key | slug }}">
+        <h1>{{ key }}</h1>
+
+        {% for resource in item %} {% include './_includes/partials/resource.njk' %} {% endfor %}
+      </section>
+      {% endfor %}
+    </div>
+
+  </main>
+
+</section>

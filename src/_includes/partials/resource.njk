@@ -1,0 +1,24 @@
+{% import "../macro/svg.njk" as svg %}
+
+<a href="{{ resource.url }}" target="_blank" class="resource">
+  <h2>
+    {{ resource.title | dewidow | safe }}
+  </h2>
+
+  {% if resource.date %} Date: {{ resource.date }} {% endif %} {% if resource.description %}
+  <p>{{ resource.description }}</p>
+  {% endif %}
+
+  <ul class="resource__meta">
+    <li>Author: {{ resource.author }}</li>
+    <li>Type: {{ resource.type }}</li>
+    {% if resource.tags != "" %}
+    <li>
+      Tags: {% for tag in resource.tags %}
+      {{ tag }}{% if loop.last == false %}, {% endif %} {% endfor %}
+    </li>
+    {% endif %}
+  </ul>
+
+  {{ svg.sprite("external", "resource__icon") }}
+</a>

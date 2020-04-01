@@ -1,0 +1,11 @@
+.sectionNav {
+  @apply sticky top-0;
+
+  &__link {
+    @apply block font-oswald text-lg text-grey-darker px-4 py-2;
+
+    &:hover {
+      @apply bg-salmon text-white;
+    }
+  }
+}
