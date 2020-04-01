@@ -35,19 +35,16 @@
 
   <body class="no-js">
     <header>
-      <h1>
-        <a href="/">{{ metadata.title }}</a>
-      </h1>
-      <p>{{ metadata.description }}</p>
+      <h1><a href="/">{{ metadata.title }}</a></h1>
     </header>
 
-    <main class="centralContainer" x-data="store()" x-init="init()">
+    <main class="centralContainer">
       {{ layoutContent | safe }}
     </main>
 
     <footer>
-      All linked resources have been provided crowdsourced (see <a href="/contributors">contributors</a>) - we take to
-      responsibility for external content
+      All linked resources have been provided crowdsourced (see <a href="/contributors">contributors</a>) - we take no
+      responsibility for external content.
     </footer>
   </body>
 </html>

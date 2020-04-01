@@ -3,6 +3,11 @@ layout: default
 eleventyExcludeFromCollections: true
 ---
 
+<section class="infoBar">
+  <p>{{ metadata.description }}</p>
+  <a href="#">Read more about Digital Tools for the Church</a>
+</section>
+
 <p>
   {% set latestUpdate = collections.updates | last %}
   <a href="{{ latestUpdate.url }}">Latest news</a>
