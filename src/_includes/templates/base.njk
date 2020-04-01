@@ -38,7 +38,7 @@
       <h1><a href="/">{{ metadata.title }}</a></h1>
     </header>
 
-    <main class="centralContainer">
+    <main class="centralContainer" x-data="store()" x-init="init()">
       {{ layoutContent | safe }}
     </main>
 
