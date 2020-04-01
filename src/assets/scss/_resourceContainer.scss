@@ -19,7 +19,7 @@
   }
 
   &__sidebar__resourceCount {
-    @apply text-sm;
+    @apply text-sm p-4;
 
     &--no-js {
       @apply hidden;
@@ -35,10 +35,9 @@
   }
 
   &__mainList__section {
-    @apply pt-4;
     
     h1 {
-      @apply font-oswald uppercase text-4xl leading-none;
+      @apply font-oswald uppercase text-4xl py-4 leading-none;
       max-width: 200px;
     }
   }
