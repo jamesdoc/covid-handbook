@@ -1,12 +1,12 @@
-{# NOTE: This layout needs to keep in step with resource_dynamic.njk #} {% import "../macro/svg.njk" as svg %}
-<a href="{{ resource.url }}" target="_blank" class="resource">
+{# NOTE: This layout needs to keep in step with resource_dynamic.njk #}
+{% import "../macro/svg.njk" as svg %}
+
+<div class="resource">
   <h2>
     {{ resource.title | dewidow | safe }}
   </h2>
 
-  {% if resource.date %} Date: {{ resource.date }} {% endif %} {% if resource.description %}
-  <p>{{ resource.description }}</p>
-  {% endif %}
+  {% if resource.date %} Date: {{ resource.date }} {% endif %}
 
   <ul class="resource__meta">
     <li>Contributor: {{ resource.contributor }}</li>
@@ -19,5 +19,13 @@
     {% endif %}
   </ul>
 
-  {{ svg.sprite("external", "resource__icon") }}
-</a>
+  <a href="{{ resource.url }}" target="_blank" rel="noopener" class="resource__link">
+    Go to resource
+  </a>
+
+  <div class="resource__actions">
+    <a href="#">
+      {{ svg.sprite("share", "resource__icon") }}
+    </a>
+  </div>
+</div>

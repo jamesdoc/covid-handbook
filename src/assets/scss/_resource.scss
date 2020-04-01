@@ -1,5 +1,5 @@
 .resource {
-  @apply block relative p-4 border-grey border-solid border-b-2 overflow-hidden;
+  @apply block relative py-4 border-grey border-solid border-b-2 overflow-hidden;
   transition: background-color .2s;
 
   &:last-child {
@@ -15,23 +15,28 @@
     transition: color .2s;
   }
 
-  &__icon {
-    @apply absolute text-salmon;
-    height: 25px;
-    width: 25px;
-    top: 5px;
-    right: 5px;
+  &__actions {
+    @apply absolute right-0 top-0 mt-6 text-grey;
+
+    a {
+      @apply no-underline;
+      
+      &:hover {
+        @apply text-salmon;
+      }
+    }
   }
 
-  &:hover {
-    @apply bg-salmon;
+  &__icon {
+    @apply h-6 w-6;
+  }
 
-    .resource__meta {
-      @apply text-white;
-    }
+  &__link {
+    @apply pt-2 inline-block;
+    transition: color .2s;
 
-    .resource__icon {
-      @apply text-white;
+    &:hover {
+      @apply text-salmon;
     }
   }
 }
