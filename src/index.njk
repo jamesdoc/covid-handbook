@@ -3,6 +3,7 @@ layout: default
 eleventyExcludeFromCollections: true
 ---
 
+{% import "./_includes/macro/svg.njk" as svg %}
 {% include './_includes/partials/infobar.njk' %}
 
 <section class="resourceContainer">
@@ -40,9 +41,11 @@ eleventyExcludeFromCollections: true
     </nav>
   </aside>
 
-  <main class="resourceContainer__mailList">
-    <section id="filter">
-      <input type="text" class="border-b" placeholder="SEARCH" x-model="query" />
+  <main class="resourceContainer__mainList">
+
+    <section id="filter" class="searchField">
+      <input type="text" class="searchField__input" placeholder="SEARCH" x-model="query" />
+      {{ svg.sprite("search", "searchField__icon") }}
     </section>
 
     <div x-show="!!query">
