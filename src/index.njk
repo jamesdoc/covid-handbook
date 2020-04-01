@@ -13,10 +13,11 @@ eleventyExcludeFromCollections: true
     </div>
     #}
 
-    <div>Displaying all {{ sheet | length }} resources</div>
+    <div x-show="!query">Displaying all {{ sheet | length }} resources</div>
+    <div x-show="!!query">Displaying all <span x-text="filteredItems().length"></span> resources</div>
 
     <nav class="sectionNav">
-      <ul>
+      <ul x-show="!query">
         {% for key, item in sheet %}
         <li>
           <a href="#{{ key | slug }}" class="sectionNav__link">
@@ -24,6 +25,17 @@ eleventyExcludeFromCollections: true
           </a>
         </li>
         {% endfor %}
+      </ul>
+
+      <ul x-show="!!query">
+        <template x-for="section in filteredSections()" :key="section.name">
+          <li>
+            <span class="sectionNav__link opacity-50" x-text="section.name" x-show="section.items.length == 0"></span>
+            <a :href="'#' + slugify(section.name)" class="sectionNav__link" x-show="section.items.length > 0">
+              <span x-text="section.name"></span> ( <span x-text="section.items.length"></span> )
+            </a>
+          </li>
+        </template>
       </ul>
     </nav>
   </aside>
