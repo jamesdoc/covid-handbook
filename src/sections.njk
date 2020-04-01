@@ -7,35 +7,37 @@ pagination:
   alias: section
 permalink: "{{ section | slug }}/"
 ---
+
 {% import "./_macro/svg.njk" as svg %}
 
-<h1>{{ section }}</h1>
+<div x-data="listing()" x-init="init()">
+  <h1>{{ section }}</h1>
 
-{% for item in sheet[section] %}
-  <a href="{{ item.url }}" target="_blank" class="resource">
+  <input type="text" x-model="query" class="border" />
+
+  {% for item in sheet[section] %}
+  <a href="{{ item.url }}" target="_blank" class="resource" x-show="!query">
     <h2>
-      {{ item.title | dewidow  | safe }}
+      {{ item.title | dewidow | safe }}
     </h2>
 
-    {% if item.section == 'Webinar' and item.date %}
-      Date: {{ item.date }}
+    {% if item.section == 'Webinar' and item.date %} Date: {{ item.date }} {% endif %} {% if item.description %}
+    <p>{{ item.description }}</p>
     {% endif %}
 
-    {% if item.description %}<p>{{ item.description }}</p>{% endif %}
-
     <ul class="resource__meta">
+      <pre x-html="query"></pre>
       <li>Author: {{ item.author }}</li>
       <li>Type: {{ item.type }}</li>
       {% if item.tags != "" %}
-        <li>
-          Tags:
-          {% for tag in item.tags %}
-            {{ tag }}{% if loop.last == false %}, {% endif %}
-          {% endfor %}
-        </li>
+      <li>
+        Tags: {% for tag in item.tags %}
+        {{ tag }}{% if loop.last == false %}, {% endif %} {% endfor %}
+      </li>
       {% endif %}
     </ul>
 
-    {{ svg.sprite('external', 'resource__icon') }}
+    {{ svg.sprite("external", "resource__icon") }}
   </a>
-{% endfor %}
+  {% endfor %}
+</div>
