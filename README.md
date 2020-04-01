@@ -10,8 +10,7 @@
 
 - The first sheet acts as your content store with a. field names in row 1 and b. content from rows 2 onward
 - Tap `File` > `Publish to the web` in the menu bar
-- From the sheet URL, make a note of the sheet id and set it in `src/_data/prod/sheet.js`
-- Tap `Tools` > `Script editor` and replace the Code.gs content with this, give it a name and save the file.
+- Tap `Tools` > `Script editor` and replace the Code.gs content with the following, give it a name and save the file.
 
 ```javascript
 /**
@@ -28,14 +27,14 @@ function onOpen() {
 }
 
 function triggerDeploy() {
-  var netlify_id = "<netify build hook id goes here>";
+  var netlifyId = "<netify build hook id goes here>";
 
   var options = {
     method: "post"
   };
 
   UrlFetchApp.fetch(
-    "https://api.netlify.com/build_hooks/" + netlify_id,
+    "https://api.netlify.com/build_hooks/" + netlifyId,
     options
   );
 }
@@ -52,7 +51,12 @@ function triggerDeploy() {
 - Add a deploy hook to trigger content updates:
 - Tap `Build and Deploy` > `Build hooks` > `Add build hook`
 - Set build command to `npm run content`
+- Note the build hook id and enter it in the script above
 - Forward your site to your own public domain
+
+## Configure the app
+
+Edit the values in `config.js` to link your app to your spreadsheet and tweak the site theme
 
 ## Project development
 
@@ -60,11 +64,11 @@ function triggerDeploy() {
 - `npm run seed` - Pulls an inital seed set of data
 - `npm run dev`
 
-### Compiles and minifies for production
+you can rehydrate the content from the linked spreadsheet any time with this commend:
 
-- `npm install`
-- `npm run seed`
-- `npm run buildAssets`
+```bash
+npm run content
+```
 
 ## Datasources
 

@@ -1,8 +1,8 @@
 const axios = require("axios");
 const seed = require("../../_utils/saveSeed.js");
+const config = require("../../../config.js");
 
-const sheetID = "1seP5plohulVEQOmUa4y4o8ry0Vobeg_zTzbHM_FyMAw";
-const googleSheetUrl = `https://spreadsheets.google.com/feeds/list/${sheetID}/1/public/values?alt=json`;
+const googleSheetUrl = `https://spreadsheets.google.com/feeds/list/${config.keys.sheetId}/1/public/values?alt=json`;
 
 const env = process.env.ELEVENTY_ENV;
 
@@ -30,18 +30,18 @@ module.exports = () => {
             }
 
             data[item.gsx$section.$t].push({
-              "title": item.gsx$title.$t,
-              "country": item.gsx$country.$t,
-              "contributor": item.gsx$contributor.$t,
-              "source": item.gsx$source.$t,
-              "url": item.gsx$url.$t,
-              "type":  item.gsx$type.$t,
-              "section": item.gsx$section.$t,
-              "subsection": item.gsx$sub-section.$t,
-              "date": item.gsx$date.$t,
-              "host": item.gsx$host.$t,
-              "paid": item.gsx$paid.$t,
-              "tags": item.gsx$tags.$t.split(","),
+              title: item.gsx$title.$t,
+              country: item.gsx$country.$t,
+              contributor: item.gsx$contributor.$t,
+              source: item.gsx$source.$t,
+              url: item.gsx$url.$t,
+              type: item.gsx$type.$t,
+              section: item.gsx$section.$t,
+              subsection: item.gsx$sub - section.$t,
+              date: item.gsx$date.$t,
+              host: item.gsx$host.$t,
+              paid: item.gsx$paid.$t,
+              tags: item.gsx$tags.$t.split(",")
             });
 
             if (env == "seed") {
