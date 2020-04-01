@@ -32,12 +32,16 @@ module.exports = () => {
 
             data[item.gsx$section.$t].push({
               "title": item.gsx$title.$t,
-              "description": item.gsx$description.$t,
-              "author": item.gsx$author.$t,
+              "country": item.gsx$country.$t,
+              "contributor": item.gsx$contributor.$t,
+              "source": item.gsx$source.$t,
               "url": item.gsx$url.$t,
               "type":  item.gsx$type.$t,
               "section": item.gsx$section.$t,
+              "subsection": item.gsx$sub-section.$t,
               "date": item.gsx$date.$t,
+              "host": item.gsx$host.$t,
+              "paid": item.gsx$paid.$t,
               "tags": item.gsx$tags.$t.split(","),
             });
 
