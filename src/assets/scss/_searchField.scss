@@ -2,13 +2,13 @@
   @apply py-4 relative;
 
   &__input {
-    @apply border-b font-oswald text-lg text-grey-darker outline-none appearance-none w-full;
+    @apply border-b font-heading text-lg text-grey-darker outline-none appearance-none w-full;
 
     &:focus,
     &:hover {
       @apply border-salmon;
 
-      &+.searchField__icon {
+      & + .searchField__icon {
         @apply text-salmon;
       }
     }
@@ -19,7 +19,7 @@
     height: 25px;
     margin: 15px 5px;
     width: 25px;
-    transform: color .2s;
+    transform: color 0.2s;
   }
 }
 

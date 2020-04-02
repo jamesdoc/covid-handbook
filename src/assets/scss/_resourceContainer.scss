@@ -1,5 +1,4 @@
 .resourceContainer {
-
   @apply flex flex-col relative;
 
   @screen sm {
@@ -36,7 +35,7 @@
 
   &__mainList__section {
     h1 {
-      @apply font-oswald uppercase text-4xl py-4 leading-none;
+      @apply font-heading uppercase text-4xl py-4 leading-none;
       max-width: 200px;
     }
   }

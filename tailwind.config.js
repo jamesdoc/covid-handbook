@@ -4,8 +4,8 @@ const { theme } = require("./config.js");
 module.exports = {
   theme: {
     borderWidth: {
-      '10': '10px',
-      ...defaultTheme.borderWidth,
+      "10": "10px",
+      ...defaultTheme.borderWidth
     },
     colors: {
       transparent: "transparent",
@@ -21,8 +21,8 @@ module.exports = {
       center: true
     },
     fontFamily: {
-      rubik: ["Rubik", ...defaultTheme.fontFamily.sans],
-      oswald: ["Oswald", ...defaultTheme.fontFamily.sans]
+      copy: [theme.bodyFont, ...defaultTheme.fontFamily.sans],
+      heading: [theme.headingFont, ...defaultTheme.fontFamily.sans]
     },
     fontWeight: {
       normal: 400,

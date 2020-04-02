@@ -15,9 +15,8 @@ module.exports = {
 
   theme: {
     brandColor: "#fd8979",
-    // this is not working yet, edit tailwind.config.js instead
-    bodyFont: "Oswald",
-    headingFont: "Rubik"
+    bodyFont: "Rubik",
+    headingFont: "Oswald"
   },
 
   contributors: [

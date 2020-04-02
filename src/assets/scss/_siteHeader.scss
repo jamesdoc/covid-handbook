@@ -2,7 +2,7 @@
   @apply border-solid border-black border-b-2 flex justify-between;
 
   h1 {
-    @apply uppercase font-oswald text-base leading-none;
+    @apply uppercase font-heading text-base leading-none;
   }
 
   a {
@@ -12,7 +12,7 @@
 
   &__navToggle {
     @apply appearance-none outline-none text-black;
-    transition: color .2s;
+    transition: color 0.2s;
     min-width: 50px;
     min-height: 50px;
 
@@ -26,7 +26,7 @@
     }
 
     span {
-      @apply uppercase font-oswald mr-2;
+      @apply uppercase font-heading mr-2;
     }
 
     svg {
