@@ -1,6 +1,10 @@
 .siteHeader {
   @apply border-solid border-black border-b-2 flex justify-between;
 
+  @screen sm {
+    @apply p-2;
+  }
+
   h1 {
     @apply uppercase font-heading text-base leading-none;
   }

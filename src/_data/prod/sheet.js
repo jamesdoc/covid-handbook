@@ -7,6 +7,11 @@ const googleSheetUrl = `https://spreadsheets.google.com/feeds/list/${metadata.sh
 const env = process.env.ELEVENTY_ENV;
 
 module.exports = () => {
+  let sanitize = function(s) {
+    return s.toString().replace(/'+/g, "");
+    // .replace(/'+/g, "&apos;");
+  };
+
   return new Promise((resolve, reject) => {
     console.log(`Requesting data from ${googleSheetUrl}`);
 
@@ -19,7 +24,7 @@ module.exports = () => {
 
         response.data.feed.entry.forEach(item => {
           if (item.gsx$verified.$t == "TRUE" && item.gsx$title.$t != "") {
-            let section = item.gsx$section.$t;
+            let section = sanitize(item.gsx$section.$t);
 
             if (section == "") {
               section = "Uncategorised";
@@ -29,18 +34,21 @@ module.exports = () => {
               data[section] = [];
             }
 
-            data[item.gsx$section.$t].push({
+            data[section].push({
+              timestamp: item.gsx$timestamp.$t,
               title: item.gsx$title.$t,
-              country: item.gsx$country.$t,
-              contributor: item.gsx$contributor.$t,
-              source: item.gsx$source.$t,
               url: item.gsx$url.$t,
+              section: sanitize(item.gsx$section.$t),
               type: item.gsx$type.$t,
-              section: item.gsx$section.$t,
-              subsection: item.gsx$sub - section.$t,
+              source: item.gsx$source.$t,
+              country: item.gsx$country.$t,
+              paid: item.gsx$paid.$t === "Yes",
               date: item.gsx$startdate.$t,
+              enddate: item.gsx$enddate.$t,
+              time: item.gsx$time.$t,
+              timezone: item.gsx$timezone.$t,
               host: item.gsx$host.$t,
-              paid: item.gsx$paid.$t
+              contributor: item.gsx$contributor.$t
             });
 
             if (env == "seed") {
@@ -64,3 +72,25 @@ module.exports = () => {
       });
   });
 };
+
+/*
+ 
+let sanitize = function(s) {
+  return s
+    .toString()
+    .replace(/'+/g, "&apos;");
+};
+
+let test = [
+  {in:"This is fine", expected: "This is fine"},
+  {in:"It's fine", expected: "It&apos;s fine"},
+  {in:"Two it's can't don't", expected: "Two it&apos;s can&apos;t don&apos;t"},
+];
+
+test.forEach(t => {
+  let safe = sanitize(t.in);
+  let pass = (t.expected === safe);
+  console.log(`${safe}: ${pass}`);
+});
+  
+ */

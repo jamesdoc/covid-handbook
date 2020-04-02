@@ -3,15 +3,17 @@ layout: default
 eleventyExcludeFromCollections: true
 ---
 
-{% import "./_includes/macro/svg.njk" as svg %} {% include './_includes/partials/infobar.njk' %}
+{% import "./_includes/macro/svg.njk" as svg %}
+
+{% include './_includes/partials/infobar.njk' %}
 
 <section class="resourceContainer">
   <aside class="resourceContainer__sidebar" x-show.transition.origin.top.center="navDisplayed">
-    {#
-    <div>
-      <a href="#">Add resource</a>
-    </div>
-    #}
+
+    <a class="resourceContainer__sidebar__addResourceBtn" target="_blank" href="https://docs.google.com/forms/d/e/{{metadata.formId}}/viewform">
+      {{ svg.sprite("add") }}
+      Add resource
+    </a>
 
     <div class="resourceContainer__sidebar__resourceCount resourceContainer__sidebar__resourceCount--no-js">
       There are {{ sheet | countResources }} resources available
@@ -25,7 +27,7 @@ eleventyExcludeFromCollections: true
     <nav class="sectionNav">
 
       {# NOTE: The following two <ul> sections should stay in sync #}
-        
+
       <ul x-show="!query">
         {% for key, item in sheet %}
         <li>
@@ -55,29 +57,30 @@ eleventyExcludeFromCollections: true
   </aside>
 
   <main class="resourceContainer__mainList">
-    <section id="filter" class="searchField">
-      <input type="text" class="searchField__input" placeholder="SEARCH" x-model="query" />
-      {{ svg.sprite("search", "searchField__icon") }}
-    </section>
+
+    {% include './_includes/partials/filters.njk' %}
 
     <div x-show="!!query">
       <template x-for="section in filteredSections()" :key="section.name">
-        <section x-show="section.items.length > 0" class="resourceContainer__mainList__section">
+        <section x-show="section.items.length > 0" class="resourceContainer__mainList__section" :class="{ 'asTiles': showAsTiles }">
           <h1 x-text="section.name" :id="slugify(section.name)"></h1>
-
-          <template x-for="item in section.items" :key="item.title">
-            {% include './_includes/partials/resource_dynamic.njk' %}
-          </template>
+          <div class="resourceList" :class="{ 'resourceList--card': showAsTiles }">
+            <template x-for="item in section.items" :key="item.title">
+              {% include './_includes/partials/resource_dynamic.njk' %}
+            </template>
+          </div>
         </section>
       </template>
     </div>
 
     <div x-show="!query">
       {% for key, item in sheet %}
-      <section id="{{ key | slug }}" class="resourceContainer__mainList__section">
+      <section id="{{ key | slug }}" class="resourceContainer__mainList__section" :class="{ 'asTiles': showAsTiles }">
         <h1>{{ key }}</h1>
 
-        {% for resource in item %} {% include './_includes/partials/resource.njk' %} {% endfor %}
+        <div class="resourceList" :class="{ 'resourceList--card': showAsTiles }">
+          {% for resource in item %} {% include './_includes/partials/resource.njk' %} {% endfor %}
+        </div>
       </section>
       {% endfor %}
     </div>

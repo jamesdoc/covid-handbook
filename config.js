@@ -1,3 +1,5 @@
+const { DateTime } = require("luxon");
+
 module.exports = {
   metadata: {
     title: "Covid-19: Digital Tools for Church",
@@ -6,17 +8,20 @@ module.exports = {
 
     // you can get this from the URL of your Google sheet
     sheetId: "1Q4o21Cc2xgq9FAaAsahcOAUwByQuAoFDEW5MUpy1ZnE",
+    formId: "1FAIpQLSdM6kX91pmBd95hwv7NSr4QicRo-3wo8WNMDLoJ8Y5DGDWJ7g",
     ogImage: "",
     rootUrl: "",
 
     // Google Tag Manager
     gtm: "GTM-N3WSC3G",
 
-    env: process.env.ELEVENTY_ENV
+    env: process.env.ELEVENTY_ENV,
+    buildTime: DateTime.local().toFormat("d MMMM yyyy - H.mm")
   },
 
   theme: {
     brandColor: "#fd8979",
+    brandColorDark: "#733D36",
     bodyFont: "Rubik",
     headingFont: "Oswald"
   },

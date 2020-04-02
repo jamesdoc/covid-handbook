@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
 dist
+covid-church/dist
 mix-manifest.json
 mix.js.map
 src/_data/dev/sheet.json

@@ -1,3 +1,10 @@
+::selection {
+  background: #e8c4bf; 
+}
+::-moz-selection {
+  background: #e8c4bf; 
+}
+
 html {
   scroll-behavior: smooth;
 }

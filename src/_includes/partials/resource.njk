@@ -1,19 +1,21 @@
-{# NOTE: This layout needs to keep in step with resource_dynamic.njk #}
-{% import "../macro/svg.njk" as svg %}
-{% import "../macro/share.njk" as share %}
+{# NOTE: This layout needs to keep in step with resource_dynamic.njk #} {% import "../macro/svg.njk" as svg %} {% import
+"../macro/share.njk" as share %}
 
 <div class="resource">
   <h2>
     {{ resource.title | dewidow | safe }}
   </h2>
 
-  <div class="resource__details">
+  {% if resource.type %}
+  <p class="resource__type">{{ resource.type }}</p>
+  {% endif %}
 
+  <div class="resource__details">
     {% if resource.date %} Date: {{ resource.date }} {% endif %}
 
     <ul class="resource__meta">
-      <li>Contributor: {{ resource.contributor }}</li>
-      <li>Type: {{ resource.type }}</li>
+      <li>Source: {{ resource.source }}</li>
+      <li>Paid: {% if resource.paid %} Yes {% else %} No {% endif %}</li>
     </ul>
 
     <a href="{{ resource.url }}" target="_blank" rel="noopener" class="resource__link">
@@ -28,5 +30,4 @@
       {{ svg.sprite("share", "resource__icon") }}
     </button>
   </div>
-
 </div>

@@ -53,7 +53,7 @@ module.exports = function(eleventyConfig) {
     passthroughFileCopy: true,
     dir: {
       input: "src",
-      output: "dist",
+      output: "covid-church/dist",
       data: `_data/${env}`,
       includes: "_includes"
     }
