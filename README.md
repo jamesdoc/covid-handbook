@@ -10,7 +10,7 @@
 
 - Log in to your Netlify account
 - Click `New site from git` and enter your public repo link
-- Set build command to `npm run production` and publish directory to `dist`
+- Set build command to `npm run production` and publish directory to `*/dist`
 - Add a deploy hook to trigger content updates:
 - Tap `Build and Deploy` > `Build hooks` > `Add build hook`
 - Set build command to `npm run content`
