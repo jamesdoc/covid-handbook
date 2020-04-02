@@ -1,8 +1,8 @@
 const axios = require("axios");
 const seed = require("../../_utils/saveSeed.js");
-const config = require("../../../config.js");
+const { metadata } = require("../../../config.js");
 
-const googleSheetUrl = `https://spreadsheets.google.com/feeds/list/${config.keys.sheetId}/1/public/values?alt=json`;
+const googleSheetUrl = `https://spreadsheets.google.com/feeds/list/${metadata.sheetId}/1/public/values?alt=json`;
 
 const env = process.env.ELEVENTY_ENV;
 

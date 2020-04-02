@@ -1,4 +1,4 @@
-const { metadata } = require('../shared/generalData.json');
+const { metadata } = require("../../../config.js");
 
 module.exports = () => {
   return metadata;

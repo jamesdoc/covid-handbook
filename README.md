@@ -56,7 +56,7 @@ function triggerDeploy() {
 
 ## Configure the app
 
-Edit the values in `config.js` to link your app to your spreadsheet and tweak the site theme
+Edit the values in `config.js` to link your app to your spreadsheet and tweak the site theme, title and other meta data
 
 ## Project development
 
@@ -69,12 +69,6 @@ you can rehydrate the content from the linked spreadsheet any time with this com
 ```bash
 npm run content
 ```
-
-## Datasources
-
-Eleventy pulls in the list of resources from a Google Sheet (see `src/data/prod/sheet.js`). In development you can seed this by running `npm run seed`.
-
-Additional data (site metadata, google tag manager id, contributors, etc) is set in `src/src/shared/generalData.json`
 
 ### ⚠️ Warning
 

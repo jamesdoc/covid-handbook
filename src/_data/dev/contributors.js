@@ -1,4 +1,4 @@
-const { contributors } = require('../shared/generalData.json');
+const { contributors } = require("../../../config.js");
 
 module.exports = () => {
   return contributors;

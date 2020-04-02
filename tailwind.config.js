@@ -1,5 +1,5 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
-const config = require("./config.js");
+const { theme } = require("./config.js");
 
 module.exports = {
   theme: {
@@ -11,7 +11,7 @@ module.exports = {
         darker: "#717171"
       },
       white: "#ffffff",
-      salmon: config.theme.brandColor
+      salmon: theme.brandColor
     },
     container: {
       center: true
