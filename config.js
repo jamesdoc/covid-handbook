@@ -10,7 +10,9 @@ module.exports = {
     rootUrl: "",
 
     // Google Tag Manager
-    gtm: ""
+    gtm: "GTM-N3WSC3G",
+
+    env: process.env.ELEVENTY_ENV,
   },
 
   theme: {

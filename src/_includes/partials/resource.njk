@@ -7,29 +7,32 @@
     {{ resource.title | dewidow | safe }}
   </h2>
 
-  {% if resource.date %} Date: {{ resource.date }} {% endif %}
+  <div class="resource__details">
 
-  <ul class="resource__meta">
-    <li>Contributor: {{ resource.contributor }}</li>
-    <li>Type: {{ resource.type }}</li>
-    {% if resource.tags != "" %}
-    <li>
-      Tags: {% for tag in resource.tags %}
-      {{ tag }}{% if loop.last == false %}, {% endif %} {% endfor %}
-    </li>
-    {% endif %}
-  </ul>
+    {% if resource.date %} Date: {{ resource.date }} {% endif %}
 
-  <a href="{{ resource.url }}" target="_blank" rel="noopener" class="resource__link">
-    Go to resource
-  </a>
+    <ul class="resource__meta">
+      <li>Contributor: {{ resource.contributor }}</li>
+      <li>Type: {{ resource.type }}</li>
+      {% if resource.tags != "" %}
+      <li>
+        Tags: {% for tag in resource.tags %}
+        {{ tag }}{% if loop.last == false %}, {% endif %} {% endfor %}
+      </li>
+      {% endif %}
+    </ul>
+
+    <a href="{{ resource.url }}" target="_blank" rel="noopener" class="resource__link">
+      Go to resource
+    </a>
+
+    {{ share.sheet(resource.url, resource.title) }}
+  </div>
 
   <div class="resource__actions">
     <button class="resource__actions__btn" @click="shareResource($event)">
       {{ svg.sprite("share", "resource__icon") }}
     </button>
   </div>
-
-  {{ share.sheet(resource.url, resource.title) }}
 
 </div>

@@ -2,16 +2,10 @@
   @apply flex flex-wrap hidden;
 
   &--open {
-    @apply flex flex-col absolute bg-white p-2 border border-salmon;
-    top: 1rem;
-    right: 2.5rem;
+    @apply grid items-center absolute bg-white p-2 border border-salmon inset-0;
 
-    &:after {
-      @apply absolute w-0 h-0 border-10 border-solid bg-transparent;
-      content: "";
-      border-color: transparent transparent transparent salmon;
-      top: 0.5rem;
-      right: -20px;
+    span:first-child {
+      @apply text-sm;
     }
 
     span:last-child {
@@ -38,14 +32,14 @@
   }
 
   &__service__icon {
-    @apply h-4 w-4 inline-block mx-2 text-grey-darker;
+    @apply h-6 w-6 inline-block mx-2 text-grey-darker;
 
     &:first-child {
       @apply ml-0;
     }
 
     @screen md {
-      @apply h-6 w-6 mx-4;
+      @apply h-8 w-8 mx-4;
     }
   }
 }
