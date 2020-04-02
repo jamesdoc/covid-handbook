@@ -8,6 +8,13 @@
 
 ## Set up a Google Sheet
 
+### Template option
+
+You can follow this link https://docs.google.com/spreadsheets/d/1OaLb4Rq-M1ucJVatuyoc-5muFAe4bwaOGVXfD48AcrQ/copy?usp=sharing to create a copy of a template already created with a script. You will need to modify the script as outlined below.
+You can run `open https://docs.google.com/spreadsheets/d/1OaLb4Rq-M1ucJVatuyoc-5muFAe4bwaOGVXfD48AcrQ/copy?usp=sharing` from terminal as well
+
+### Create a sheet
+
 - The first sheet acts as your content store with a. field names in row 1 and b. content from rows 2 onward
 - Tap `File` > `Publish to the web` in the menu bar
 - Tap `Tools` > `Script editor` and replace the Code.gs content with the following, give it a name and save the file.
@@ -30,13 +37,17 @@ function triggerDeploy() {
   var netlifyId = "<netify build hook id goes here>";
 
   var options = {
-    method: "post"
+    method: "post",
   };
 
   UrlFetchApp.fetch(
     "https://api.netlify.com/build_hooks/" + netlifyId,
     options
   );
+}
+
+function triggerDeploys() {
+  var netlifyId = "<netify build hook id goes here>";
 }
 ```
 
