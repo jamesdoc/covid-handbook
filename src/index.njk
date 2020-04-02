@@ -18,14 +18,18 @@ eleventyExcludeFromCollections: true
     </div>
 
     <div class="resourceContainer__sidebar__resourceCount resourceContainer__sidebar__resourceCount--js">
-      Listing <span x-text="filteredItems().length ? `${filteredItems().length} of `:''"></span>{{ sheet | countResources }} resources
+      Listing <span x-text="filteredItems().length ? `${filteredItems().length} of `:''"></span
+      >{{ sheet | countResources }} resources
     </div>
 
     <nav class="sectionNav">
+
+      {# NOTE: The following two <ul> sections should stay in sync #}
+        
       <ul x-show="!query">
         {% for key, item in sheet %}
         <li>
-          <a href="#{{ key | slug }}" class="sectionNav__link" @click.away="navDisplayed = false"">
+          <a href="#{{ key | slug }}" class="sectionNav__link" @click.away="navDisplayed = false">
             {{ key }}
           </a>
         </li>
@@ -36,7 +40,12 @@ eleventyExcludeFromCollections: true
         <template x-for="section in filteredSections()" :key="section.name">
           <li>
             <span class="sectionNav__link opacity-50" x-text="section.name" x-show="section.items.length == 0"></span>
-            <a :href="'#' + slugify(section.name)" class="sectionNav__link" x-show="section.items.length > 0">
+            <a
+              :href="'#' + slugify(section.name)"
+              class="sectionNav__link"
+              x-show="section.items.length > 0"
+              @click.away="navDisplayed = false"
+            >
               <span x-text="section.name"></span> ( <span x-text="section.items.length"></span> )
             </a>
           </li>

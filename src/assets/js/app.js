@@ -1,7 +1,10 @@
+// import { shareResource } from './resourceActions';
+
 const data = require("../../_data/dev/sheet.json");
 
 window.store = function() {
   return {
+    mainNavLinks: [],
     navDisplayed: false,
     sections: [],
     items: [],
@@ -53,12 +56,38 @@ window.store = function() {
         .replace(/-+$/, ""); // Trim - from end of text
     },
 
+    onScroll(event) {
+      let fromTop = window.scrollY;
+
+      this.mainNavLinks.forEach(link => {
+        let section = document.querySelector(link.hash);
+
+        if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+          link.classList.add("sectionNav__link__tracking");
+        } else {
+          link.classList.remove("sectionNav__link__tracking");
+        }
+      });
+    },
+
+    shareResource(event) {
+      const el = event.target; // Careful, might be the SVG, not the <button>
+      const shareSheet = el.closest(".resource").querySelector(".shareSheet");
+      shareSheet.classList.toggle("shareSheet--open");
+    },
+
     init() {
+      this.mainNavLinks = document.querySelectorAll(".sectionNav__link"); // "nav ul li a"
+
       Object.entries(data).forEach(([key, value]) => {
         this.sections.push(key);
         for (let item of value) {
           this.items.push(item);
         }
+      });
+
+      window.addEventListener("scroll", event => {
+        this.onScroll(event);
       });
 
       //   this.sections.forEach(s => console.log(s));

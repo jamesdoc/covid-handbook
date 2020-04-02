@@ -4,6 +4,10 @@
   &__link {
     @apply block font-oswald text-lg text-grey-darker px-4 py-2;
 
+    &__tracking {
+      @apply bg-black text-white;
+    }
+
     &:hover {
       @apply bg-salmon text-white;
     }
