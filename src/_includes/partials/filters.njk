@@ -5,8 +5,12 @@
   </div>
 
   <div class="viewOptions__btns">
-    <button @click="showAsTiles = !showAsTiles" aria-label="Toggle list or card view">
-      {{ svg.sprite("viewlist") }}
+    <button x-show="showAsTiles === true" @click="showAsTiles = false" aria-label="View as a list">
+      {{ svg.sprite("list") }}
+    </button>
+
+    <button x-show="showAsTiles === false" @click="showAsTiles = true" aria-label="View as a grid">
+      {{ svg.sprite("grid") }}
     </button>
   </div>
 </section>
