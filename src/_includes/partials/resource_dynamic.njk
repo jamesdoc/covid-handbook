@@ -1,5 +1,6 @@
 {# NOTE: This layout needs to keep in step with resource.njk #}
 {% import "../macro/svg.njk" as svg %}
+{% import "../macro/share.njk" as share %}
 
 <div class="resource">
   <h2 x-text="item.title"></h2>
@@ -17,8 +18,10 @@
   </a>
 
   <div class="resource__actions">
-    <a href="#">
-      {{ svg.sprite("share", "resource__icon") }}
-    </a>
+    <button class="resource__actions__btn" @click="shareResource($event)">
+      {{ svg.sprite("share", "resource__icon resource__icon--share") }}
+    </button>
   </div>
+
+  {{ share.sheet(resource.url, resource.title) }}
 </div>

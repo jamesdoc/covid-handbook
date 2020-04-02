@@ -12,6 +12,10 @@ module.exports = function (eleventyConfig){
     return s.replace(/ (?=[^ ]*$)/i, "&nbsp;");
   });
 
+  eleventyConfig.addFilter("urlEncode", s => {
+    return encodeURIComponent(s);
+  });
+
   eleventyConfig.addFilter("countResources", obj => {
     i = 0;
     Object.keys(obj).map(function(key, index) {

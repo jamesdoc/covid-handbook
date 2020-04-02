@@ -1,3 +1,5 @@
+// import { shareResource } from './resourceActions';
+
 const data = require("../../_data/dev/sheet.json");
 
 window.store = function() {
@@ -68,6 +70,12 @@ window.store = function() {
       });
     },
 
+    shareResource(event) {
+      const el = event.target; // Careful, might be the SVG, not the <button>
+      const shareSheet = el.closest(".resource").querySelector(".shareSheet");
+      shareSheet.classList.toggle("shareSheet--open");
+    },
+
     init() {
       this.mainNavLinks = document.querySelectorAll(".sectionNav__link"); // "nav ul li a"
 
@@ -79,17 +87,7 @@ window.store = function() {
       });
 
       window.addEventListener("scroll", event => {
-        let fromTop = window.scrollY;
-
-        this.mainNavLinks.forEach(link => {
-          let section = document.querySelector(link.hash);
-
-          if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
-            link.classList.add("sectionNav__link__tracking");
-          } else {
-            link.classList.remove("sectionNav__link__tracking");
-          }
-        });
+        this.onScroll(event);
       });
 
       //   this.sections.forEach(s => console.log(s));
