@@ -25,7 +25,7 @@ eleventyExcludeFromCollections: true
     <nav class="sectionNav">
 
       {# NOTE: The following two <ul> sections should stay in sync #}
-        
+
       <ul x-show="!query">
         {% for key, item in sheet %}
         <li>
@@ -55,24 +55,29 @@ eleventyExcludeFromCollections: true
   </aside>
 
   <main class="resourceContainer__mainList">
-    
-    <section id="filter" class="flex">
-      <div class="searchField">
+
+    <section id="filter" class="viewOptions">
+      <div class="viewOptions__search searchField">
         <input type="text" class="searchField__input" placeholder="SEARCH" x-model="query" />
         {{ svg.sprite("search", "searchField__icon") }}
       </div>
-      
-      <button class="-mr-12" @click="showAsTiles = !showAsTiles">#</button>
+
+      <div class="viewOptions__btns">
+        <button @click="showAsTiles = !showAsTiles" aria-label="Toggle list or card view">
+          {{ svg.sprite("viewlist") }}
+        </button>
+      </div>
     </section>
 
     <div x-show="!!query">
       <template x-for="section in filteredSections()" :key="section.name">
         <section x-show="section.items.length > 0" class="resourceContainer__mainList__section" :class="{ 'asTiles': showAsTiles }">
           <h1 x-text="section.name" :id="slugify(section.name)"></h1>
-
-          <template x-for="item in section.items" :key="item.title">
-            {% include './_includes/partials/resource_dynamic.njk' %}
-          </template>
+          <div class="resourceList" :class="{ 'resourceList--card': showAsTiles }">
+            <template x-for="item in section.items" :key="item.title">
+              {% include './_includes/partials/resource_dynamic.njk' %}
+            </template>
+          </div>
         </section>
       </template>
     </div>
@@ -82,7 +87,9 @@ eleventyExcludeFromCollections: true
       <section id="{{ key | slug }}" class="resourceContainer__mainList__section" :class="{ 'asTiles': showAsTiles }">
         <h1>{{ key }}</h1>
 
-        {% for resource in item %} {% include './_includes/partials/resource.njk' %} {% endfor %}
+        <div class="resourceList" :class="{ 'resourceList--card': showAsTiles }">
+          {% for resource in item %} {% include './_includes/partials/resource.njk' %} {% endfor %}
+        </div>
       </section>
       {% endfor %}
     </div>

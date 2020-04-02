@@ -1,5 +1,5 @@
 .searchField {
-  @apply py-4 relative;
+  @apply py-4 relative max-w-screen-md;
 
   &__input {
     @apply border-b font-heading text-lg text-grey-darker outline-none appearance-none w-full;
@@ -21,8 +21,4 @@
     width: 25px;
     transform: color 0.2s;
   }
-}
-
-.no-js .searchField {
-  display: none;
 }
