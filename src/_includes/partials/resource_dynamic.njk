@@ -4,13 +4,18 @@
 <div class="resource">
   <h2 x-text="item.title"></h2>
 
+  <p class="resource__type" x-text="item.type"></p>
+
   <div class="resource__details">
     <span x-show="item.date">Date: <span x-text="item.date"></span></span>
 
     <ul class="resource__meta">
       <li>Source: <span x-text="item.source"></span></li>
+<<<<<<< Updated upstream
       <li>Type: <span x-text="item.type"></span></li>
       <li>Paid: <span x-text="item.paid ? 'Yes' : 'No'"></span></li>
+=======
+>>>>>>> Stashed changes
     </ul>
 
     <a :href="item.url" target="_blank" rel="noopener" class="resource__link">
