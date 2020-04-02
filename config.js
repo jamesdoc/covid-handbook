@@ -26,6 +26,20 @@ module.exports = {
     headingFont: "Oswald"
   },
 
+  // Add in custom intro paragraphs for each section
+  // 100% optional
+  sections: {
+    'starter-guide': {
+      'intro': 'Where to start and what to consider.',
+    },
+    'prayer': {
+      'intro': 'Prayer is not our only response, but it should be our first response.',
+    },
+    'church-response': {
+      'intro': 'Best practise examples of how churches, key leaders and networks have responded to the coronavirus, either continuing services, cancelling services, sharing encouraging words, direction or providing language around this pandemic.',
+    }
+  },
+
   contributors: [
     {
       name: "Mark Crosby",

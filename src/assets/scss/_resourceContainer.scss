@@ -16,7 +16,7 @@
     backdrop-filter: blur(2px);
 
     @screen sm {
-      @apply relative border-grey border-solid border-r;
+      @apply relative border-grey border-solid border-r pb-64;
       display: block !important; // Hack to override alpineJS: revisit
     }
   }
@@ -49,13 +49,13 @@
     @apply px-4;
 
     @screen sm {
-      @apply pl-0 pr-8;
+      @apply pl-0 pr-8 pb-32;
     }
   }
 
   &__mainList__section {
     h1 {
-      @apply font-heading uppercase text-4xl py-4 leading-none;
+      @apply font-heading uppercase text-4xl py-4 leading-none font-bold;
       max-width: 200px;
     }
   }

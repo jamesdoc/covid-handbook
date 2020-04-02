@@ -78,6 +78,10 @@ eleventyExcludeFromCollections: true
       <section id="{{ key | slug }}" class="resourceContainer__mainList__section" :class="{ 'asTiles': showAsTiles }">
         <h1>{{ key }}</h1>
 
+        {% if sections[ key | slug] %}
+        <p>{{ sections[ key | slug ]['intro'] | dewidow | safe }}</p>
+        {% endif %}
+
         <div class="resourceList" :class="{ 'resourceList--card': showAsTiles }">
           {% for resource in item %} {% include './_includes/partials/resource.njk' %} {% endfor %}
         </div>
