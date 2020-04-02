@@ -1,6 +1,5 @@
-{# NOTE: This layout needs to keep in step with resource.njk #}
-{% import "../macro/svg.njk" as svg %}
-{% import "../macro/share.njk" as share %}
+{# NOTE: This layout needs to keep in step with resource.njk #} {% import "../macro/svg.njk" as svg %} {% import
+"../macro/share.njk" as share %}
 
 <div class="resource">
   <h2 x-text="item.title"></h2>
@@ -8,12 +7,11 @@
   <p class="resource__type" x-text="item.type"></p>
 
   <div class="resource__details">
-
     <ul class="resource__meta">
-      <li x-show="item.date">Time: <span x-text="item.date"></span></li>
+      <li x-show="item.date">Time: <span x-text="dateForHumans(item)"></span></li>
       <li x-show="item.host">Host: <span x-text="item.host"></span></li>
       <li x-show="item.source">Source: <span x-text="item.source"></span></li>
-      <li x-show="item.paid">Paid <span x-text="item.type.toLowerCase()"></span></li>
+      <li>Paid <span x-text="item.paid ? 'Yes' : 'No'"></span></li>
     </ul>
 
     <a :href="item.url" target="_blank" rel="noopener" class="resource__link">

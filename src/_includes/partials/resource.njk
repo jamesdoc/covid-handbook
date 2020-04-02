@@ -1,6 +1,5 @@
-{# NOTE: This layout needs to keep in step with resource_dynamic.njk #}
-{% import "../macro/svg.njk" as svg %}
-{% import "../macro/share.njk" as share %}
+{# NOTE: This layout needs to keep in step with resource_dynamic.njk #} {% import "../macro/svg.njk" as svg %} {% import
+"../macro/share.njk" as share %}
 
 <div class="resource">
   <h2>
@@ -12,15 +11,17 @@
   {% endif %}
 
   <div class="resource__details">
-
     <ul class="resource__meta">
-      {% if resource.date %}<li>Time: {{ resource.date | readableDateTime }}</li>{% endif %}
-      {% if resource.host %}<li>Host: {{ resource.host }}</li>{% endif %}
-
-      {% if resource.source %}
+      {% if resource.date %}
+      <li>Time: {{ resource | dateForHumans }}</li>
+      {% endif %} {% if resource.host %}
+      <li>Host: {{ resource.host }}</li>
+      {% endif %} {% if resource.source %}
       <li>Source: {{ resource.source }}</li>
+      {% endif %} {% if resource.country %}
+      <li>Country: {{ resource.country }}</li>
       {% endif %}
-      <li>{% if resource.paid %}Paid {{ resource.type | lower }}{% endif %}</li>
+      <li>Paid: {% if resource.paid %} Yes {% else %} No {% endif %}</li>
     </ul>
 
     <a href="{{ resource.url }}" target="_blank" rel="noopener" class="resource__link">

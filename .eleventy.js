@@ -3,8 +3,16 @@ const { DateTime } = require("luxon");
 module.exports = function(eleventyConfig) {
   let env = process.env.ELEVENTY_ENV;
 
-  eleventyConfig.addFilter("readableDateTime", dateObj => {
-    return DateTime.fromISO(dateObj).toFormat("t - d LLLL yyyy");
+  // follow dateForHumans in app.js
+  eleventyConfig.addFilter("dateForHumans", item => {
+    if (!item.date) return "";
+    let startDate = DateTime.fromISO(item.date).toFormat("d LLLL yyyy");
+    if (!item.time && !item.enddate) return startDate;
+    if (item.time) return `${startDate} at ${item.time}`;
+    if (!item.enddate) return startDate;
+
+    let endDate = DateTime.fromISO(item.enddate).toFormat("d LLLL yyyy");
+    return `${startDate} to ${endDate}`;
   });
 
   eleventyConfig.addFilter("readableDate", dateObj => {

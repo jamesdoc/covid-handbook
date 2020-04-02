@@ -2,6 +2,7 @@
 
 const data = require("../../_data/dev/sheet.json");
 var throttle = require("lodash.throttle");
+const { DateTime } = require("luxon");
 
 window.store = function() {
   return {
@@ -83,6 +84,18 @@ window.store = function() {
       svgUse.setAttributeNS(svgXLink, "xlink:href", `${svgSpriteUrl}#${icon}`);
     },
 
+    // follow dateForHumans in .eleventy.js
+    dateForHumans(item) {
+      if (!item.date) return "";
+      let startDate = DateTime.fromISO(item.date).toFormat("d LLLL yyyy");
+      if (!item.time && !item.enddate) return startDate;
+      if (item.time) return `${startDate} at ${item.time}`;
+      if (!item.enddate) return startDate;
+
+      let endDate = DateTime.fromISO(item.enddate).toFormat("d LLLL yyyy");
+      return `${startDate} to ${endDate}`;
+    },
+
     init() {
       this.mainNavLinks = document.querySelectorAll(".sectionNav__link"); // "nav ul li a"
 
@@ -108,6 +121,17 @@ window.store = function() {
 };
 
 /*
+
+      console.log(this.dateForHumans({ date: "2020-04-23", enddate: "2020-03-27", time: "19:30 GMT" }));
+      console.log(this.dateForHumans({ date: "2020-04-23", enddate: "2020-03-27", time: "" }));
+      console.log(this.dateForHumans({ date: "2020-04-23", enddate: "", time: "19:30 GMT" }));
+      console.log(this.dateForHumans({ date: "2020-04-23", enddate: "", time: "" }));
+      console.log(this.dateForHumans({ date: "", enddate: "2020-03-27", time: "19:30 GMT" }));
+      console.log(this.dateForHumans({ date: "", enddate: "2020-03-27", time: "" }));
+      console.log(this.dateForHumans({ date: "", enddate: "", time: "19:30 GMT" }));
+      console.log(this.dateForHumans({ date: "", enddate: "", time: "" }));
+
+      -----------------------
 
       let test = [
         { in: "Apps, Software & Other Useful Tools", out: "apps-software-and-other-useful-tools" },
