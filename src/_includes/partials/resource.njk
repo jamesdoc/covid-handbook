@@ -14,12 +14,6 @@
     <ul class="resource__meta">
       <li>Contributor: {{ resource.contributor }}</li>
       <li>Type: {{ resource.type }}</li>
-      {% if resource.tags != "" %}
-      <li>
-        Tags: {% for tag in resource.tags %}
-        {{ tag }}{% if loop.last == false %}, {% endif %} {% endfor %}
-      </li>
-      {% endif %}
     </ul>
 
     <a href="{{ resource.url }}" target="_blank" rel="noopener" class="resource__link">

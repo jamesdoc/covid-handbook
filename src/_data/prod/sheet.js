@@ -38,10 +38,9 @@ module.exports = () => {
               type: item.gsx$type.$t,
               section: item.gsx$section.$t,
               subsection: item.gsx$sub - section.$t,
-              date: item.gsx$date.$t,
+              date: item.gsx$startdate.$t,
               host: item.gsx$host.$t,
-              paid: item.gsx$paid.$t,
-              tags: item.gsx$tags.$t.split(",")
+              paid: item.gsx$paid.$t
             });
 
             if (env == "seed") {

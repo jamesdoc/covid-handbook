@@ -1,7 +1,6 @@
 const { DateTime } = require("luxon");
 
-module.exports = function (eleventyConfig){
-
+module.exports = function(eleventyConfig) {
   let env = process.env.ELEVENTY_ENV;
 
   eleventyConfig.addFilter("readableDate", dateObj => {
@@ -16,23 +15,27 @@ module.exports = function (eleventyConfig){
     return encodeURIComponent(s);
   });
 
+  eleventyConfig.addFilter("plusify", s => {
+    return s.split(" ").join("+");
+  });
+
   eleventyConfig.addFilter("countResources", obj => {
     i = 0;
     Object.keys(obj).map(function(key, index) {
       i += obj[key].length;
     });
     return i;
-  })
+  });
 
   // Set up updates collection
-  eleventyConfig.addCollection("updates", function (collection) {
-    return collection.getAllSorted().filter(function (item) {
+  eleventyConfig.addCollection("updates", function(collection) {
+    return collection.getAllSorted().filter(function(item) {
       return item.inputPath.match(/^\.\/src\/updates\//) !== null;
     });
   });
 
-  eleventyConfig.addLayoutAlias('default', 'templates/base.njk')
-  eleventyConfig.addLayoutAlias('post', 'templates/post.njk')
+  eleventyConfig.addLayoutAlias("default", "templates/base.njk");
+  eleventyConfig.addLayoutAlias("post", "templates/post.njk");
 
   // Assets pass-through
   eleventyConfig.addPassthroughCopy("src/assets/icons");
@@ -40,7 +43,7 @@ module.exports = function (eleventyConfig){
   eleventyConfig.addPassthroughCopy("src/assets/fonts");
   eleventyConfig.addPassthroughCopy({ "src/assets/static": "/" });
 
-  env = (env=="seed") ? "prod" : env;
+  env = env == "seed" ? "prod" : env;
   return {
     templateFormats: ["html", "njk", "md"],
     pathPrefix: "/",
@@ -53,6 +56,6 @@ module.exports = function (eleventyConfig){
       output: "dist",
       data: `_data/${env}`,
       includes: "_includes"
-    },
+    }
   };
-}
+};
