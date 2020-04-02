@@ -45,4 +45,8 @@
 }
 .no-js .shareSheet {
   @apply block;
+
+  &__service__icon {
+    @apply h-4 w-4;
+  }
 }

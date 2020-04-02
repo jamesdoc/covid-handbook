@@ -1,6 +1,6 @@
 .resourceList {
   &--card {
-    @apply grid grid-cols-1 col-gap-4 row-gap-4 mb-6;
+    @apply grid grid-cols-1 col-gap-4 row-gap-4 mb-6 max-w-screen-md;
 
     @screen md {
       @apply grid-cols-2 

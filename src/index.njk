@@ -56,20 +56,24 @@ eleventyExcludeFromCollections: true
 
   <main class="resourceContainer__mainList">
 
-    <section id="filter" class="flex">
-      <div class="searchField">
+    <section id="filter" class="viewOptions">
+      <div class="viewOptions__search searchField">
         <input type="text" class="searchField__input" placeholder="SEARCH" x-model="query" />
         {{ svg.sprite("search", "searchField__icon") }}
       </div>
 
-      <button class="-mr-12" @click="showAsTiles = !showAsTiles">#</button>
+      <div class="viewOptions__btns">
+        <button @click="showAsTiles = !showAsTiles" aria-label="Toggle list or card view">
+          {{ svg.sprite("viewlist") }}
+        </button>
+      </div>
     </section>
 
     <div x-show="!!query">
       <template x-for="section in filteredSections()" :key="section.name">
         <section x-show="section.items.length > 0" class="resourceContainer__mainList__section" :class="{ 'asTiles': showAsTiles }">
           <h1 x-text="section.name" :id="slugify(section.name)"></h1>
-          <div class="resourceList">
+          <div class="resourceList" :class="{ 'resourceList--card': showAsTiles }">
             <template x-for="item in section.items" :key="item.title">
               {% include './_includes/partials/resource_dynamic.njk' %}
             </template>
@@ -83,7 +87,7 @@ eleventyExcludeFromCollections: true
       <section id="{{ key | slug }}" class="resourceContainer__mainList__section" :class="{ 'asTiles': showAsTiles }">
         <h1>{{ key }}</h1>
 
-        <div class="resourceList">
+        <div class="resourceList" :class="{ 'resourceList--card': showAsTiles }">
           {% for resource in item %} {% include './_includes/partials/resource.njk' %} {% endfor %}
         </div>
       </section>
