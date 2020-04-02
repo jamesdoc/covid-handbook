@@ -6,12 +6,17 @@
   }
 
   h2 {
-    @apply text-2xl pr-8;
+    @apply text-2xl pr-8 pt-4;
+  }
+
+  &__type {
+    @apply font-heading uppercase text-salmon leading-none absolute top-0 mt-4;
   }
 
   &__meta {
     @apply text-grey-darker;
     transition: color .2s;
+    min-height: 3rem;
   }
 
   &__details {
