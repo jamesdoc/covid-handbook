@@ -20,8 +20,8 @@ eleventyExcludeFromCollections: true
     </div>
 
     <div class="resourceContainer__sidebar__resourceCount resourceContainer__sidebar__resourceCount--js">
-      Listing <span x-text="filteredItems().length ? `${filteredItems().length} of `:''"></span
-      >{{ sheet | countResources }} resources
+      <span x-show="!query">Listing all {{ sheet | countResources }} resources</span>
+      <span x-show="!!query">Showing <span x-text="filteredItems().length"></span> results from search</span>
     </div>
 
     <nav class="sectionNav">
