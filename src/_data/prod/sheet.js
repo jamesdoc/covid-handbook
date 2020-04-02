@@ -72,3 +72,25 @@ module.exports = () => {
       });
   });
 };
+
+/*
+ 
+let sanitize = function(s) {
+  return s
+    .toString()
+    .replace(/'+/g, "&apos;");
+};
+
+let test = [
+  {in:"This is fine", expected: "This is fine"},
+  {in:"It's fine", expected: "It&apos;s fine"},
+  {in:"Two it's can't don't", expected: "Two it&apos;s can&apos;t don&apos;t"},
+];
+
+test.forEach(t => {
+  let safe = sanitize(t.in);
+  let pass = (t.expected === safe);
+  console.log(`${safe}: ${pass}`);
+});
+  
+ */
