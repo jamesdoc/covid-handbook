@@ -5,6 +5,7 @@ var throttle = require("lodash.throttle");
 
 window.store = function() {
   return {
+    showAsTiles: false,
     mainNavLinks: [],
     navDisplayed: false,
     sections: [],
