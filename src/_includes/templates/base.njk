@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <!-- Google Tag Manager --> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-N3WSC3G');</script> <!-- End Google Tag Manager -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
@@ -32,10 +31,12 @@
     <link rel="shortcut icon" href="/favicon.svg" type="image/svg" />
     <link rel="stylesheet" media="screen" type="text/css" href="/assets/css/main.min.css" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    {% if metadata.env != 'dev' %}
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{{ metadata.gtm }}');</script>
+    {% endif %}
   </head>
 
   <body class="no-js" x-data="store()" x-init="init()">
-  <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3WSC3G" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) -->
     <header class="siteHeader">
       <h1>
         <a href="/">{{ metadata.title }}</a>
@@ -68,5 +69,8 @@
 
     <script>document.body.classList.remove("no-js");</script>
     <script src="/assets/app.js"></script>
+    {% if metadata.env != 'dev' %}
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ metadata.gtm }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    {% endif %}
   </body>
 </html>
