@@ -15,6 +15,10 @@
     transition: color .2s;
   }
 
+  &__details {
+    @apply relative;
+  }
+
   &__actions {
     @apply absolute right-0 top-0 mt-6 text-grey;
   }
