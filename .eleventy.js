@@ -3,8 +3,12 @@ const { DateTime } = require("luxon");
 module.exports = function(eleventyConfig) {
   let env = process.env.ELEVENTY_ENV;
 
+  eleventyConfig.addFilter("readableDateTime", dateObj => {
+    return DateTime.fromISO(dateObj).toFormat("t - d LLLL yyyy");
+  });
+
   eleventyConfig.addFilter("readableDate", dateObj => {
-    return DateTime.fromJSDate(dateObj).toFormat("dd LLLL yyyy");
+    return DateTime.fromISO(dateObj).toFormat("d LLLL yyyy");
   });
 
   eleventyConfig.addFilter("dewidow", s => {

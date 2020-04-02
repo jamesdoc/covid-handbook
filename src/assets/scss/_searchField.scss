@@ -19,10 +19,11 @@
   }
 
   &__icon {
-    @apply absolute top-0 right-0 text-black;
-    height: 25px;
-    margin: 15px 5px;
-    width: 25px;
+    @apply absolute top-0 right-0 text-black mt-4 mr-2 w-6 h-6;
     transform: color 0.2s;
+
+    @screen md {
+      @apply mt-6
+    }
   }
 }
