@@ -20,10 +20,9 @@
 ## Set up a Google Sheet
 
 - [Make a copy of the sheet template](https://docs.google.com/spreadsheets/d/1OaLb4Rq-M1ucJVatuyoc-5muFAe4bwaOGVXfD48AcrQ/copy?usp=sharing)
-- On the `Lists` tab, fill in your sections and resource types
 - Tap `File` > `Publish to the web` in the menu bar
-- Tap `Tools` > `Script editor` and fill in your netlify build hook id
-- Save the script changes
+- Tap `Tools` > `Script editor` and fill in your netlify build hook id and save the changes.
+- On the `Lists` tab, fill in your sections and resource types
 - Add some resources in the `Content` tab
 
 The first time you tap on the `Publish` button your script will ask you for permissions to run.

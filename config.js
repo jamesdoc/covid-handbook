@@ -5,21 +5,20 @@ module.exports = {
       "A crowdsourced index of useful digital communication tools for church leaders, communications teams and church staff to refer to during the coronavirus outbreak.",
 
     // you can get this from the URL of your Google sheet
-    sheetId: "1seP5plohulVEQOmUa4y4o8ry0Vobeg_zTzbHM_FyMAw",
+    sheetId: "1Q4o21Cc2xgq9FAaAsahcOAUwByQuAoFDEW5MUpy1ZnE",
     ogImage: "",
     rootUrl: "",
 
     // Google Tag Manager
     gtm: "GTM-N3WSC3G",
 
-    env: process.env.ELEVENTY_ENV,
+    env: process.env.ELEVENTY_ENV
   },
 
   theme: {
     brandColor: "#fd8979",
-    // this is not working yet, edit tailwind.config.js instead
-    bodyFont: "Oswald",
-    headingFont: "Rubik"
+    bodyFont: "Rubik",
+    headingFont: "Oswald"
   },
 
   contributors: [
