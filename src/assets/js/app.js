@@ -1,6 +1,7 @@
 // import { shareResource } from './resourceActions';
 
 const data = require("../../_data/dev/sheet.json");
+var throttle = require("lodash.throttle");
 
 window.store = function() {
   return {
@@ -56,7 +57,7 @@ window.store = function() {
         .replace(/-+$/, ""); // Trim - from end of text
     },
 
-    onScroll(event) {
+    onScroll() {
       let fromTop = window.scrollY;
 
       this.mainNavLinks.forEach(link => {
@@ -86,9 +87,12 @@ window.store = function() {
         }
       });
 
-      window.addEventListener("scroll", event => {
-        this.onScroll(event);
-      });
+      window.addEventListener(
+        "scroll",
+        throttle(() => {
+          this.onScroll();
+        }, 200)
+      );
 
       //   this.sections.forEach(s => console.log(s));
       //   this.items.forEach(s => console.log(s.title));
