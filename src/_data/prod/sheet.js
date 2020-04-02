@@ -40,7 +40,8 @@ module.exports = () => {
               subsection: item.gsx$sub - section.$t,
               date: item.gsx$startdate.$t,
               host: item.gsx$host.$t,
-              paid: item.gsx$paid.$t
+              paid: item.gsx$paid.$t === "Yes",
+              endDate: item.gsx$enddate
             });
 
             if (env == "seed") {
