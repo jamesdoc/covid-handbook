@@ -29,7 +29,7 @@
     <meta property="og:image" content="{{ metadata.ogImage }}" />
     <meta property="og:image:alt" content="{{ metadata.description }}" />
     <link rel="shortcut icon" href="/favicon.svg" type="image/svg" />
-    <link href="https://fonts.googleapis.com/css2?family={{ theme.headingFont }}&family={{ theme.bodyFont }}:wght@400;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family={{ theme.headingFont | plusify }}&family={{ theme.bodyFont | plusify }}:wght@400;700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" media="screen" type="text/css" href="/assets/css/main.min.css" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     {% if metadata.env != 'dev' %}
