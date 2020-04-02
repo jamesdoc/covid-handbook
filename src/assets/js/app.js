@@ -35,11 +35,6 @@ window.store = function() {
       return this.items.filter(s => s.title.toLowerCase().indexOf(this.query.toLowerCase()) !== -1);
     },
 
-    tags(item) {
-      if (item.tags && !item.tags[0]) return "";
-      return item.tags.join(", ");
-    },
-
     slugify(string) {
       const a = "àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;";
       const b = "aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuuwxyyzzz------";

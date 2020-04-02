@@ -1,3 +1,5 @@
+const { DateTime } = require("luxon");
+
 module.exports = {
   metadata: {
     title: "Covid-19: Digital Tools for Church",
@@ -12,7 +14,8 @@ module.exports = {
     // Google Tag Manager
     gtm: "GTM-N3WSC3G",
 
-    env: process.env.ELEVENTY_ENV
+    env: process.env.ELEVENTY_ENV,
+    buildTime: DateTime.local().toFormat('d MMMM yyyy - H.mm'),
   },
 
   theme: {
