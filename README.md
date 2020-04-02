@@ -8,7 +8,12 @@
 
 ## Set up a Google Sheet
 
-### You can follow this link https://docs.google.com/spreadsheets/d/1OaLb4Rq-M1ucJVatuyoc-5muFAe4bwaOGVXfD48AcrQ/copy?usp=sharing to create a copy of a template already created with a script. You will need to modify the script as outlined below.
+### Template option
+
+You can follow this link https://docs.google.com/spreadsheets/d/1OaLb4Rq-M1ucJVatuyoc-5muFAe4bwaOGVXfD48AcrQ/copy?usp=sharing to create a copy of a template already created with a script. You will need to modify the script as outlined below.
+You can run `open https://docs.google.com/spreadsheets/d/1OaLb4Rq-M1ucJVatuyoc-5muFAe4bwaOGVXfD48AcrQ/copy?usp=sharing` from terminal as well
+
+### Create a sheet
 
 - The first sheet acts as your content store with a. field names in row 1 and b. content from rows 2 onward
 - Tap `File` > `Publish to the web` in the menu bar
