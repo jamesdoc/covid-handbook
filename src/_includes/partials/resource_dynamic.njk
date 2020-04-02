@@ -5,23 +5,25 @@
 <div class="resource">
   <h2 x-text="item.title"></h2>
 
-  <span x-show="item.date">Date: <span x-text="item.date"></span></span>
+  <div class="resource__details">
+    <span x-show="item.date">Date: <span x-text="item.date"></span></span>
 
-  <ul class="resource__meta">
-    <li>Contributor: <span x-text="item.contributor"></span></li>
-    <li>Type: <span x-text="item.type"></span></li>
-    <li x-show="!!tags(item)">Tags: <span x-text="tags(item)"></span></li>
-  </ul>
+    <ul class="resource__meta">
+      <li>Contributor: <span x-text="item.contributor"></span></li>
+      <li>Type: <span x-text="item.type"></span></li>
+      <li x-show="!!tags(item)">Tags: <span x-text="tags(item)"></span></li>
+    </ul>
 
-  <a :href="item.url" target="_blank" rel="noopener"  class="resource__link">
-    Go to resource
-  </a>
+    <a :href="item.url" target="_blank" rel="noopener"  class="resource__link">
+      Go to resource
+    </a>
+
+    {{ share.sheet(resource.url, resource.title) }}
+  </div>
 
   <div class="resource__actions">
     <button class="resource__actions__btn" @click="shareResource($event)">
-      {{ svg.sprite("share", "resource__icon resource__icon--share") }}
+      {{ svg.sprite("share", "resource__icon") }}
     </button>
   </div>
-
-  {{ share.sheet(resource.url, resource.title) }}
 </div>

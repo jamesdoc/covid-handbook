@@ -1,6 +1,5 @@
 .resource {
-  @apply block relative py-4 border-grey border-solid border-b-2 overflow-hidden;
-  transition: background-color .2s;
+  @apply block relative py-4 border-grey border-solid border-b-2 overflow-hidden max-w-screen-md;
 
   &:last-child {
     @apply border-b-0;
@@ -13,6 +12,10 @@
   &__meta {
     @apply text-grey-darker;
     transition: color .2s;
+  }
+
+  &__details {
+    @apply relative;
   }
 
   &__actions {
