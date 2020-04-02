@@ -55,14 +55,19 @@ eleventyExcludeFromCollections: true
   </aside>
 
   <main class="resourceContainer__mainList">
-    <section id="filter" class="searchField">
-      <input type="text" class="searchField__input" placeholder="SEARCH" x-model="query" />
-      {{ svg.sprite("search", "searchField__icon") }}
+    
+    <section id="filter" class="flex">
+      <div class="searchField">
+        <input type="text" class="searchField__input" placeholder="SEARCH" x-model="query" />
+        {{ svg.sprite("search", "searchField__icon") }}
+      </div>
+      
+      <button class="-mr-12" @click="showAsTiles = !showAsTiles">#</button>
     </section>
 
     <div x-show="!!query">
       <template x-for="section in filteredSections()" :key="section.name">
-        <section x-show="section.items.length > 0" class="resourceContainer__mainList__section">
+        <section x-show="section.items.length > 0" class="resourceContainer__mainList__section" :class="{ 'asTiles': showAsTiles }">
           <h1 x-text="section.name" :id="slugify(section.name)"></h1>
 
           <template x-for="item in section.items" :key="item.title">
@@ -74,7 +79,7 @@ eleventyExcludeFromCollections: true
 
     <div x-show="!query">
       {% for key, item in sheet %}
-      <section id="{{ key | slug }}" class="resourceContainer__mainList__section">
+      <section id="{{ key | slug }}" class="resourceContainer__mainList__section" :class="{ 'asTiles': showAsTiles }">
         <h1>{{ key }}</h1>
 
         {% for resource in item %} {% include './_includes/partials/resource.njk' %} {% endfor %}
