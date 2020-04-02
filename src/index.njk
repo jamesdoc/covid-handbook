@@ -7,11 +7,12 @@ eleventyExcludeFromCollections: true
 
 <section class="resourceContainer">
   <aside class="resourceContainer__sidebar" x-show.transition.origin.top.center="navDisplayed">
-    {#
-    <div>
-      <a href="#">Add resource</a>
+    
+    <div class="flex ml-4 mt-4">
+      <div class="mr-2">+</div>
+      <a class="no-underline" target="_blank" href="https://docs.google.com/forms/d/e/{{metadata.formId}}/viewform">ADD RESOURCE</a>
     </div>
-    #}
+    
 
     <div class="resourceContainer__sidebar__resourceCount resourceContainer__sidebar__resourceCount--no-js">
       There are {{ sheet | countResources }} resources available
