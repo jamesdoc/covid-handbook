@@ -1,0 +1,12 @@
+<section id="filter" class="viewOptions">
+  <div class="viewOptions__search searchField">
+    <input type="text" class="searchField__input" placeholder="SEARCH" x-model="query" />
+    {{ svg.sprite("search", "searchField__icon") }}
+  </div>
+
+  <div class="viewOptions__btns">
+    <button @click="showAsTiles = !showAsTiles" aria-label="Toggle list or card view">
+      {{ svg.sprite("viewlist") }}
+    </button>
+  </div>
+</section>

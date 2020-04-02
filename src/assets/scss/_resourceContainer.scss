@@ -3,7 +3,11 @@
 
   @screen sm {
     @apply grid col-gap-8;
-    grid-template-columns: 200px auto;
+    grid-template-columns: 220px auto;
+  }
+
+  @screen md {
+    grid-template-columns: 280px auto;
   }
 
   &__sidebar {
@@ -12,13 +16,29 @@
     backdrop-filter: blur(2px);
 
     @screen sm {
-      @apply relative border-grey border-solid border-r-2;
+      @apply relative border-grey border-solid border-r;
       display: block !important; // Hack to override alpineJS: revisit
     }
   }
 
+  &__sidebar__addResourceBtn {
+    @apply no-underline font-heading flex items-center p-4 uppercase;
+
+    @screen md {
+      @apply pt-6;
+    }
+
+    &:hover {
+      @apply text-salmon;
+    }
+
+    svg {
+      @apply mr-4;
+    }
+  }
+
   &__sidebar__resourceCount {
-    @apply text-sm p-4;
+    @apply text-sm pl-14 mb-4;
 
     &--no-js {
       @apply hidden;
@@ -41,12 +61,12 @@
   }
 }
 
-.resourceContainer__mainList__section.asTiles {
-  // whatever
-}
-
 .no-js .resourceContainer__sidebar {
-  @apply relative border-b-2 mb-2 pb-2;
+  @apply relative border-b border-grey mb-2 pb-2;
+
+  @screen md {
+    @apply border-b-0;
+  }
 }
 
 .no-js .resourceContainer__sidebar__resourceCount--js {

@@ -3,16 +3,17 @@ layout: default
 eleventyExcludeFromCollections: true
 ---
 
-{% import "./_includes/macro/svg.njk" as svg %} {% include './_includes/partials/infobar.njk' %}
+{% import "./_includes/macro/svg.njk" as svg %}
+
+{% include './_includes/partials/infobar.njk' %}
 
 <section class="resourceContainer">
   <aside class="resourceContainer__sidebar" x-show.transition.origin.top.center="navDisplayed">
-    
-    <div class="flex ml-4 mt-4">
-      <div class="mr-2">+</div>
-      <a class="no-underline" target="_blank" href="https://docs.google.com/forms/d/e/{{metadata.formId}}/viewform">ADD RESOURCE</a>
-    </div>
-    
+
+    <a class="resourceContainer__sidebar__addResourceBtn" target="_blank" href="https://docs.google.com/forms/d/e/{{metadata.formId}}/viewform">
+      {{ svg.sprite("add") }}
+      Add resource
+    </a>
 
     <div class="resourceContainer__sidebar__resourceCount resourceContainer__sidebar__resourceCount--no-js">
       There are {{ sheet | countResources }} resources available
@@ -57,18 +58,7 @@ eleventyExcludeFromCollections: true
 
   <main class="resourceContainer__mainList">
 
-    <section id="filter" class="viewOptions">
-      <div class="viewOptions__search searchField">
-        <input type="text" class="searchField__input" placeholder="SEARCH" x-model="query" />
-        {{ svg.sprite("search", "searchField__icon") }}
-      </div>
-
-      <div class="viewOptions__btns">
-        <button @click="showAsTiles = !showAsTiles" aria-label="Toggle list or card view">
-          {{ svg.sprite("viewlist") }}
-        </button>
-      </div>
-    </section>
+    {% include './_includes/partials/filters.njk' %}
 
     <div x-show="!!query">
       <template x-for="section in filteredSections()" :key="section.name">

@@ -15,7 +15,9 @@ module.exports = {
         darker: "#717171"
       },
       white: "#ffffff",
-      salmon: theme.brandColor
+      salmon: {
+        default: theme.brandColor
+      }
     },
     container: {
       center: true
@@ -35,7 +37,11 @@ module.exports = {
       lg: "1024px",
       xl: "1280px"
     },
-    extend: {}
+    extend: {
+      padding: {
+        "14": "3.5rem",
+      },
+    }
   },
   variants: {
     opacity: ["responsive", "hover", "focus", "disabled"],

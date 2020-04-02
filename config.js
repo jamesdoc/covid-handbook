@@ -21,6 +21,7 @@ module.exports = {
 
   theme: {
     brandColor: "#fd8979",
+    brandColorDark: "#733D36",
     bodyFont: "Rubik",
     headingFont: "Oswald"
   },
