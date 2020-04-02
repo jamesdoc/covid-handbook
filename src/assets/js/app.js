@@ -34,11 +34,6 @@ window.store = function() {
       return this.items.filter(s => s.title.toLowerCase().indexOf(this.query.toLowerCase()) !== -1);
     },
 
-    tags(item) {
-      if (item.tags && !item.tags[0]) return "";
-      return item.tags.join(", ");
-    },
-
     slugify(string) {
       const a = "àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;";
       const b = "aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuuwxyyzzz------";
@@ -73,18 +68,18 @@ window.store = function() {
 
     shareResource(ev) {
       const el = ev.target; // Careful, might be the SVG, not the <button>
-      const shareSheet = el.closest('.resource').querySelector('.shareSheet');
-      shareSheet.classList.toggle('shareSheet--open');
+      const shareSheet = el.closest(".resource").querySelector(".shareSheet");
+      shareSheet.classList.toggle("shareSheet--open");
 
       // Toggle the icon
-      const iconParent = el.closest('.resource__actions__btn');
+      const iconParent = el.closest(".resource__actions__btn");
       const svgXLink = "http://www.w3.org/1999/xlink";
-      const svgUse = iconParent.querySelector('.resource__icon__use');
+      const svgUse = iconParent.querySelector(".resource__icon__use");
       console.log(svgUse);
-      let icon = svgUse.getAttribute('xlink:href').split('#');
-      const svgSpriteUrl = icon[0]
-      icon = icon[1] == 'close' ? 'share' : 'close';
-      svgUse.setAttributeNS(svgXLink, 'xlink:href', `${svgSpriteUrl}#${icon}`);
+      let icon = svgUse.getAttribute("xlink:href").split("#");
+      const svgSpriteUrl = icon[0];
+      icon = icon[1] == "close" ? "share" : "close";
+      svgUse.setAttributeNS(svgXLink, "xlink:href", `${svgSpriteUrl}#${icon}`);
     },
 
     init() {
