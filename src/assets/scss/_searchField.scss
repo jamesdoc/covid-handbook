@@ -1,5 +1,5 @@
 .searchField {
-  @apply py-4 relative;
+  @apply py-4 relative max-w-screen-md;
 
   &__input {
     @apply border-b font-oswald text-lg text-grey-darker outline-none appearance-none w-full;

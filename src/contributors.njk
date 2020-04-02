@@ -3,29 +3,62 @@ layout: default
 eleventyExcludeFromCollections: true
 title: Contributors
 ---
+<section class="resourceContainer">
 
-<p>
-A collection of those involved in Church Communications who have contributed and collaborated on resources and links.
-</p>
+  <aside class="resourceContainer__sidebar">
+    <nav class="sectionNav">
+      <ul>
+        <li>
+          <a href="/" class="sectionNav__link">Return to resources</a>
+        </li>
+        <li>
+          <a href="#content" class="sectionNav__link">Content</a>
+        </li>
+        <li>
+          <a href="#technology" class="sectionNav__link">Technology</a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
 
-<h2>Content</h2>
+  <main class="resourceContainer__mainList">
 
-<ul>
-{% for c in contributors %}
-  {% if 'content' in c.role %}
-    <li><a href="{{ c.url }}">{{ c.name }}</a> - {{ c.desc}}</li>
-  {% endif %}
-{% endfor %}
-</ul>
+    <div class="highlightBox">
+      <p>
+        {{ metadata.description }}
+      </p>
+    </div>
 
-<h2>Tech</h2>
+    <section class="resourceContainer__mainList__section">
 
-<ul>
-{% for c in contributors %}
-  {% if 'tech' in c.role %}
-    <li><a href="{{ c.url }}">{{ c.name }}</a> - {{ c.desc }}</li>
-  {% endif %}
-{% endfor %}
-</ul>
+      <h1 id="content">Content</h1>
 
-<p>Site built with Eleventy, Google Sheets, and Netlify. <a href="https://bitbucket.org/onesheep/covid-churches-handbook/src/master/">View source</a>.</p>
+      <ul>
+      {% for c in contributors %}
+        {% if 'content' in c.role %}
+          <li><a href="{{ c.url }}">{{ c.name }}</a> - {{ c.desc}}</li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+    </section>
+
+    <section class="resourceContainer__mainList__section">
+
+      <h1 id="technology">Technology</h1>
+
+      <ul>
+      {% for c in contributors %}
+        {% if 'tech' in c.role %}
+          <li><a href="{{ c.url }}">{{ c.name }}</a> - {{ c.desc }}</li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+
+      <div class="highlightBox">
+        <p>Site built with Eleventy, Google Sheets, and Netlify. <a href="https://bitbucket.org/onesheep/covid-churches-handbook/src/master/">View source</a>.</p>
+      </div>
+
+    </section>
+
+  </main>
+</section>
