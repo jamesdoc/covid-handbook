@@ -11,7 +11,7 @@
       <li x-show="item.date">Time: <span x-text="dateForHumans(item)"></span></li>
       <li x-show="item.host">Host: <span x-text="item.host"></span></li>
       <li x-show="item.source">Source: <span x-text="item.source"></span></li>
-      <li>Paid <span x-text="item.paid ? 'Yes' : 'No'"></span></li>
+      <li><span x-text="item.paid ? 'This resource has a cost' : 'This is a free resource'"></span></li>
     </ul>
 
     <a :href="item.url" target="_blank" rel="noopener" class="resource__link">

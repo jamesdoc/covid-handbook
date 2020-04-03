@@ -21,7 +21,7 @@
       {% endif %} {% if resource.country %}
       <li>Country: {{ resource.country }}</li>
       {% endif %}
-      <li>Paid: {% if resource.paid %} Yes {% else %} No {% endif %}</li>
+      <li>{% if resource.paid %} This is a paid resource {% else %} This is a free resource {% endif %}</li>
     </ul>
 
     <a href="{{ resource.url }}" target="_blank" rel="noopener" class="resource__link">
