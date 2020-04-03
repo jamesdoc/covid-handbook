@@ -1,4 +1,5 @@
 const { DateTime } = require("luxon");
+const { publicRoot } = require("./config.js");
 
 module.exports = function(eleventyConfig) {
   // let env = process.env.ELEVENTY_ENV;
@@ -64,7 +65,7 @@ module.exports = function(eleventyConfig) {
     passthroughFileCopy: true,
     dir: {
       input: "src",
-      output: "dist",
+      output: publicRoot,
       data: "_data",
       includes: "_includes"
     }

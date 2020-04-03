@@ -1,6 +1,8 @@
 const { DateTime } = require("luxon");
 
 module.exports = {
+  publicRoot: 'dist',
+
   metadata: {
     title: "Covid-19: Digital Tools for Church",
     description:

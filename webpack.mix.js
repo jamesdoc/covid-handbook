@@ -1,5 +1,6 @@
 const mix = require("laravel-mix");
 const tailwindcss = require("tailwindcss");
+const { publicRoot } = require("./config.js");
 require("@ayctor/laravel-mix-svg-sprite");
 
 // Set up purgeCSS to rip all the excess that Tailwind creates
@@ -15,15 +16,15 @@ const purgecss = require("@fullhuman/postcss-purgecss")({
 const paths = {
   sass: {
     source: "./src/assets/scss/main.scss",
-    dest: "./dist/assets/css/"
+    dest: `assets/css/`
   },
   svg: {
-    source: "./src/assets/svg/**/*.svg",
-    dest: "./dist/assets/svg/sprite.svg"
+    source: "",
+    dest: `assets/svg/sprite.svg`
   }
 };
 
-mix.setPublicPath("covid-church/dist/assets/");
+mix.setPublicPath(`${publicRoot}/assets/`);
 
 mix.options({
   processCssUrls: false,
@@ -40,8 +41,8 @@ mix.options({
 
 // Run mix
 mix
-  .js("./src/assets/js/app.js", "./dist/assets/app.js")
-  .svgSprite(paths.svg.source, paths.svg.dest)
-  .sass(paths.sass.source, paths.sass.dest)
-  .minify(paths.sass.dest + "main.css")
+  .js("./src/assets/js/app.js", `app.js`)
+  .svgSprite("./src/assets/svg/**/*.svg", "assets/svg/sprite.svg")
+  .sass("./src/assets/scss/main.scss", "css")
+  .minify(`${publicRoot}/assets/css/main.css`)
   .sourceMaps();
