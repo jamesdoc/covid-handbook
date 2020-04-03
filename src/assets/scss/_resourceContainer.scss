@@ -55,13 +55,17 @@
 
   &__mainList__section {
     h1 {
-      @apply font-heading uppercase text-4xl py-4 leading-none font-bold;
+      @apply font-heading uppercase leading-none font-bold text-4xl py-4;
       max-width: 200px;
     }
 
     .markdown {
       h2 {
-        @apply font-heading uppercase text-4xl py-4 leading-none font-bold;
+        @apply font-heading uppercase leading-none font-bold text-3xl py-4;
+      }
+
+      h3 {
+        @apply font-heading uppercase leading-none font-bold text-2xl py-2;
       }
     }
   }
