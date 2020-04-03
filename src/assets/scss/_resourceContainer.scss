@@ -58,6 +58,12 @@
       @apply font-heading uppercase text-4xl py-4 leading-none font-bold;
       max-width: 200px;
     }
+
+    .markdown {
+      h2 {
+        @apply font-heading uppercase text-4xl py-4 leading-none font-bold;
+      }
+    }
   }
 }
 

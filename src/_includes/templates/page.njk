@@ -1,7 +1,5 @@
 ---
 layout: default
-eleventyExcludeFromCollections: true
-title: About
 ---
 
 <section class="resourceContainer">
@@ -17,7 +15,9 @@ title: About
 
   <main class="resourceContainer__mainList">
     <section class="resourceContainer__mainList__section">
-      {% include '../more.md' %}
+      <div class="markdown">
+        {{ layoutContent | safe }}
+      </div>
     </section>
   </main>
 </section>

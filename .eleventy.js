@@ -47,6 +47,7 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addLayoutAlias("default", "templates/base.njk");
+  eleventyConfig.addLayoutAlias("page", "templates/page.njk");
   eleventyConfig.addLayoutAlias("post", "templates/post.njk");
 
   // Assets pass-through

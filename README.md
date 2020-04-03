@@ -33,6 +33,8 @@ Only rows ticked as `Verified` will be published.
 
 Edit the values in `config.js` to link your app to your spreadsheet and tweak the site theme, title and other meta data
 
+Also fill out the `about.md` file for giving more information about your collection and for communicating your contact details.
+
 ## Project development
 
 - `npm install`
