@@ -1,64 +1,43 @@
 ---
-layout: default
+layout: page
 eleventyExcludeFromCollections: true
 title: Contributors
+sectionNav: [{title: 'Content', url: '#content'}, {title: 'Technology', url: '#technology'}]
 ---
-<section class="resourceContainer">
 
-  <aside class="resourceContainer__sidebar">
-    <nav class="sectionNav">
-      <ul>
-        <li>
-          <a href="/" class="sectionNav__link">Return to resources</a>
-        </li>
-        <li>
-          <a href="#content" class="sectionNav__link">Content</a>
-        </li>
-        <li>
-          <a href="#technology" class="sectionNav__link">Technology</a>
-        </li>
-      </ul>
-    </nav>
-  </aside>
+<div class="highlightBox">
+  <p>
+    {{ metadata.description }}
+  </p>
+</div>
 
-  <main class="resourceContainer__mainList">
+<section class="resourceContainer__mainList__section">
 
-    <div class="highlightBox">
-      <p>
-        {{ metadata.description }}
-      </p>
-    </div>
+  <h1 id="content">Content</h1>
 
-    <section class="resourceContainer__mainList__section">
+  <ul>
+  {% for c in contributors %}
+    {% if 'content' in c.role %}
+      <li><a href="{{ c.url }}">{{ c.name }}</a> - {{ c.desc}}</li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+</section>
 
-      <h1 id="content">Content</h1>
+<section class="resourceContainer__mainList__section">
 
-      <ul>
-      {% for c in contributors %}
-        {% if 'content' in c.role %}
-          <li><a href="{{ c.url }}">{{ c.name }}</a> - {{ c.desc}}</li>
-        {% endif %}
-      {% endfor %}
-      </ul>
-    </section>
+  <h1 id="technology">Technology</h1>
 
-    <section class="resourceContainer__mainList__section">
+  <ul>
+  {% for c in contributors %}
+    {% if 'tech' in c.role %}
+      <li><a href="{{ c.url }}">{{ c.name }}</a> - {{ c.desc }}</li>
+    {% endif %}
+  {% endfor %}
+  </ul>
 
-      <h1 id="technology">Technology</h1>
+  <div class="highlightBox">
+    <p>Site built with Eleventy, Google Sheets, and Netlify. <a href="https://bitbucket.org/onesheep/covid-churches-handbook/src/master/">View source</a>.</p>
+  </div>
 
-      <ul>
-      {% for c in contributors %}
-        {% if 'tech' in c.role %}
-          <li><a href="{{ c.url }}">{{ c.name }}</a> - {{ c.desc }}</li>
-        {% endif %}
-      {% endfor %}
-      </ul>
-
-      <div class="highlightBox">
-        <p>Site built with Eleventy, Google Sheets, and Netlify. <a href="https://bitbucket.org/onesheep/covid-churches-handbook/src/master/">View source</a>.</p>
-      </div>
-
-    </section>
-
-  </main>
 </section>

@@ -1,16 +1,27 @@
 ---
 layout: default
 ---
+{% import "../macro/svg.njk" as svg %}
 
 <section class="resourceContainer">
   <aside class="resourceContainer__sidebar">
+
+    <a class="resourceContainer__sidebar__addResourceBtn" href="/">
+      {{ svg.sprite("back") }}
+      All resources
+    </a>
+
+    {% if sectionNav %}
     <nav class="sectionNav">
       <ul>
+        {% for section in sectionNav %}
         <li>
-          <a href="/" class="sectionNav__link">Return to resources</a>
+          <a class="sectionNav__link" href="{{ section.url }}">{{ section.title }}</a>
         </li>
+        {% endfor %}
       </ul>
     </nav>
+    {% endif %}
   </aside>
 
   <main class="resourceContainer__mainList">
