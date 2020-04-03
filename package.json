@@ -10,8 +10,7 @@
     "content": "ELEVENTY_ENV=dev npm run seed && npx @11ty/eleventy",
     "netlify": "npm run seed && npx @11ty/eleventy && webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "@11ty/eleventy": "^0.10.0",
     "@ayctor/laravel-mix-svg-sprite": "^1.0.0",
     "@fullhuman/postcss-purgecss": "^2.1.0",
