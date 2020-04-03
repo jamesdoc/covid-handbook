@@ -1,6 +1,6 @@
 // import { shareResource } from './resourceActions';
 
-const data = require("../../_data/dev/sheet.json");
+const data = require("../../_data/sheet.json");
 var throttle = require("lodash.throttle");
 const { DateTime } = require("luxon");
 
