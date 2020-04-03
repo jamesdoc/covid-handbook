@@ -8,4 +8,4 @@ All of the resources listed here have been crowdsourced from [volunteers](/contr
 
 Yes! This used to be a Google Doc running on top of the [Google Docs Enhancement Suite](https://gdes.app/). As the number of people using it grew, there were increasing issues with the site performance. The team at [OneSheep](https://onesheep.org) have been working hard to make the resource list easier to update, search for relevant resources, and share links.
 
-Developers can [view the code on BitBucket](https://bitbucket.org/onesheep/covid-churches-handbook/src/master/).
+Developers can [view the template code on GitHub](https://github.com/OneSheep/junipertree).
