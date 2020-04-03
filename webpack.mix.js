@@ -15,11 +15,11 @@ const purgecss = require("@fullhuman/postcss-purgecss")({
 const paths = {
   sass: {
     source: "./src/assets/scss/main.scss",
-    dest: "./covid-church/dist/assets/css/"
+    dest: "./dist/assets/css/"
   },
   svg: {
     source: "./src/assets/svg/**/*.svg",
-    dest: "./covid-church/dist/assets/svg/sprite.svg"
+    dest: "./dist/assets/svg/sprite.svg"
   }
 };
 
@@ -40,7 +40,7 @@ mix.options({
 
 // Run mix
 mix
-  .js("./src/assets/js/app.js", "./covid-church/dist/assets/app.js")
+  .js("./src/assets/js/app.js", "./dist/assets/app.js")
   .svgSprite(paths.svg.source, paths.svg.dest)
   .sass(paths.sass.source, paths.sass.dest)
   .minify(paths.sass.dest + "main.css")
