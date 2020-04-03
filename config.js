@@ -6,8 +6,8 @@ module.exports = {
     description: "A crowdsourced index of useful digital communication tools for church leaders, communications teams and church staff to refer to during the coronavirus outbreak.",
 
     // you can get this from the URL of your Google sheet
-    sheetId: "1Q4o21Cc2xgq9FAaAsahcOAUwByQuAoFDEW5MUpy1ZnE",
-    formId: "1FAIpQLSdM6kX91pmBd95hwv7NSr4QicRo-3wo8WNMDLoJ8Y5DGDWJ7g",
+    sheetId: "1Z3OcDa1iqiXnCTvZRH2HOIzFfOn3BgxZB9f6-d5HFNY",
+    formId: "1FAIpQLScjCELAdFEej0Ak7zrHo2I13jPhyiN5c4zWmOjyLe68w9__HQ",
     ogImage: "/assets/img/ogimage.jpg",
     rootUrl: "https://covid.churcheshandbook.co.uk/",
 
