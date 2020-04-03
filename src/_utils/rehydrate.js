@@ -1,9 +1,9 @@
 const axios = require("axios");
 const fs = require("fs");
-const { metadata } = require("../config.js");
+const { metadata } = require("../../config.js");
 
 const googleSheetUrl = `https://spreadsheets.google.com/feeds/list/${metadata.sheetId}/1/public/values?alt=json`;
-const outputPath = `${__dirname}/../src/_data/sheet.json`;
+const outputPath = `${__dirname}/../_data/sheet.json`;
 
 let sanitize = function(s) {
   return s.toString().replace(/'+/g, "");
