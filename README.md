@@ -50,3 +50,7 @@ npm run content
 ### ⚠️ Warning
 
 The JSON endpoint provided by the Google Sheet will stop providing data as soon as it hits an empty row. You have been warned.
+
+## Tech debt
+
+- remove /updates

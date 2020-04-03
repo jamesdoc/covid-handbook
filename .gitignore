@@ -3,7 +3,7 @@ node_modules
 dist
 mix-manifest.json
 mix.js.map
-src/_data/dev/sheet.json
+src/_data/sheet.json
 
 # local env files
 .env.local

@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "ELEVENTY_ENV=dev npx @11ty/eleventy --serve --port=8080 & webpack --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "production": "ELEVENTY_ENV=production npx @11ty/eleventy & NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "seed": "ELEVENTY_ENV=seed eleventy",
+    "production": "ELEVENTY_ENV=production npm run seed && npx @11ty/eleventy & NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "seed": "node src/_utils/rehydrate.js",
     "buildAssets": "NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "content": "npm run seed && npm run buildAssets"
+    "content": "ELEVENTY_ENV=dev npm run seed && npx @11ty/eleventy"
   },
   "dependencies": {},
   "devDependencies": {

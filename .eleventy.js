@@ -1,7 +1,7 @@
 const { DateTime } = require("luxon");
 
 module.exports = function(eleventyConfig) {
-  let env = process.env.ELEVENTY_ENV;
+  // let env = process.env.ELEVENTY_ENV;
 
   // follow dateForHumans in app.js
   eleventyConfig.addFilter("dateForHumans", item => {
@@ -53,10 +53,8 @@ module.exports = function(eleventyConfig) {
   // Assets pass-through
   eleventyConfig.addPassthroughCopy("src/assets/icons");
   eleventyConfig.addPassthroughCopy("src/assets/img");
-  eleventyConfig.addPassthroughCopy("src/assets/fonts");
   eleventyConfig.addPassthroughCopy({ "src/assets/static": "/" });
 
-  env = env == "seed" ? "prod" : env;
   return {
     templateFormats: ["html", "njk", "md"],
     pathPrefix: "/",
@@ -67,7 +65,7 @@ module.exports = function(eleventyConfig) {
     dir: {
       input: "src",
       output: "dist",
-      data: `_data/${env}`,
+      data: "_data",
       includes: "_includes"
     }
   };
