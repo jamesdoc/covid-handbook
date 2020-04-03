@@ -13,7 +13,7 @@
 - Set build command to `npm run production` and publish directory to `dist`
 - Add a deploy hook to trigger content updates:
 - Tap `Build and Deploy` > `Build hooks` > `Add build hook`
-- Set build command to `npm run content`
+- Set build command to `npm run production`
 - Note the build hook id which you will need in the next section
 - Forward your site to your own public domain
 
