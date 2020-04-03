@@ -1,5 +1,6 @@
-{# NOTE: This layout needs to keep in step with resource_dynamic.njk #} {% import "../macro/svg.njk" as svg %} {% import
-"../macro/share.njk" as share %}
+{# NOTE: This layout needs to keep in step with resource_dynamic.njk #}
+{% import "../macro/svg.njk" as svg %}
+{% import "../macro/share.njk" as share %}
 
 <div class="resource">
   <h2>
@@ -28,7 +29,7 @@
       Go to resource
     </a>
 
-    {{ share.sheet(resource.url, resource.title) }}
+    {{ share.sheet(resource.url, resource.title + " (via https://covid.churcheshandbook.co.uk)") }}
   </div>
 
   <div class="resource__actions">
