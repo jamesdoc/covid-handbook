@@ -11,10 +11,16 @@
   {% endif %}
 
   <div class="resource__details">
-    {% if resource.date %} Date: {{ resource.date }} {% endif %}
-
     <ul class="resource__meta">
+      {% if resource.date %}
+      <li>Time: {{ resource | dateForHumans }}</li>
+      {% endif %} {% if resource.host %}
+      <li>Host: {{ resource.host }}</li>
+      {% endif %} {% if resource.source %}
       <li>Source: {{ resource.source }}</li>
+      {% endif %} {% if resource.country %}
+      <li>Country: {{ resource.country }}</li>
+      {% endif %}
       <li>Paid: {% if resource.paid %} Yes {% else %} No {% endif %}</li>
     </ul>
 

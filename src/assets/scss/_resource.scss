@@ -1,8 +1,17 @@
 .resource {
-  @apply block relative py-4 border-grey border-solid border-b-2 overflow-hidden max-w-screen-md;
+  @apply block relative py-4 overflow-hidden max-w-screen-md;
+
+  &:after {
+    @apply block mx-auto mt-6 h-1 border-grey border-solid border-b w-6/12;
+    content: '';
+  }
 
   &:last-child {
     @apply border-b-0;
+
+    &:after {
+      content: none;
+    }
   }
 
   h2 {
@@ -14,7 +23,7 @@
   }
 
   &__meta {
-    @apply text-grey-darker;
+    @apply text-black my-3;
     transition: color .2s;
     min-height: 3rem;
   }
@@ -24,7 +33,7 @@
   }
 
   &__actions {
-    @apply absolute right-0 top-0 mt-6 text-grey;
+    @apply absolute right-0 top-0 mt-10 text-grey;
   }
 
   &__actions__btn {

@@ -13,7 +13,7 @@
 - Set build command to `npm run production` and publish directory to `dist`
 - Add a deploy hook to trigger content updates:
 - Tap `Build and Deploy` > `Build hooks` > `Add build hook`
-- Set build command to `npm run content`
+- Set build command to `npm run production`
 - Note the build hook id which you will need in the next section
 - Forward your site to your own public domain
 
@@ -33,6 +33,8 @@ Only rows ticked as `Verified` will be published.
 
 Edit the values in `config.js` to link your app to your spreadsheet and tweak the site theme, title and other meta data
 
+Also fill out the `about.md` file for giving more information about your collection and for communicating your contact details.
+
 ## Project development
 
 - `npm install`
@@ -48,3 +50,7 @@ npm run content
 ### ⚠️ Warning
 
 The JSON endpoint provided by the Google Sheet will stop providing data as soon as it hits an empty row. You have been warned.
+
+## Tech debt
+
+- remove /updates
