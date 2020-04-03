@@ -1,2 +1,25 @@
 .svgIcon { @apply w-6 h-6; }
 a:hover .svgIcon { @apply text-salmon; }
+
+.u-backToTop {
+  @apply fixed bg-grey-lighter hidden text-black cursor-pointer no-underline bottom-0 right-0 mr-4 mb-4 z-10 text-center;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+
+  @screen sm {
+    @apply mr-6 mb-6;
+  }
+
+  &:hover {
+    @apply text-salmon;
+  }
+
+  &--show {
+    @apply block;
+  }
+}
+
+.no-js .u-backToTop {
+  @apply block;
+}

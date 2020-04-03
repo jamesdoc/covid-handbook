@@ -120,28 +120,29 @@ window.store = function() {
   };
 };
 
-/*
+/* begin begin Back to Top button  */
+(function() {
+  'use strict';
 
-      console.log(this.dateForHumans({ date: "2020-04-23", enddate: "2020-03-27", time: "19:30 GMT" }));
-      console.log(this.dateForHumans({ date: "2020-04-23", enddate: "2020-03-27", time: "" }));
-      console.log(this.dateForHumans({ date: "2020-04-23", enddate: "", time: "19:30 GMT" }));
-      console.log(this.dateForHumans({ date: "2020-04-23", enddate: "", time: "" }));
-      console.log(this.dateForHumans({ date: "", enddate: "2020-03-27", time: "19:30 GMT" }));
-      console.log(this.dateForHumans({ date: "", enddate: "2020-03-27", time: "" }));
-      console.log(this.dateForHumans({ date: "", enddate: "", time: "19:30 GMT" }));
-      console.log(this.dateForHumans({ date: "", enddate: "", time: "" }));
+  function trackScroll() {
+    var scrolled = window.pageYOffset;
+    var coords = document.documentElement.clientHeight;
 
-      -----------------------
+    if (scrolled > coords) {
+      goTopBtn.classList.add('u-backToTop--show');
+    }
+    if (scrolled < coords) {
+      goTopBtn.classList.remove('u-backToTop--show');
+    }
+  }
 
-      let test = [
-        { in: "Apps, Software & Other Useful Tools", out: "apps-software-and-other-useful-tools" },
-        { in: "Live", out: "live" },
-        { in: "Copyright/Music Licensing", out: "copyrightmusic-licensing" }
-      ];
+  function backToTop() {
+    window.scrollTo(0, 0);
+  }
 
-      let that = this;
-      test.forEach(t => {
-        console.log(this.slugify(t.in));
-        console.log(t.out == that.slugify(t.in) ? "pass" : "fail");
-      });
-*/
+  var goTopBtn = document.querySelector('.js-backToTop');
+
+  window.addEventListener('scroll', trackScroll);
+  goTopBtn.addEventListener('click', backToTop);
+})();
+/* end begin Back to Top button  */
