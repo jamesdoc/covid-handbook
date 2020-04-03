@@ -7,7 +7,8 @@
     "production": "ELEVENTY_ENV=production npm run seed && npx @11ty/eleventy & NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "seed": "node src/_utils/rehydrate.js",
     "buildAssets": "NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "content": "ELEVENTY_ENV=dev npm run seed && npx @11ty/eleventy"
+    "content": "ELEVENTY_ENV=dev npm run seed && npx @11ty/eleventy",
+    "netlify": "npm run seed && npx @11ty/eleventy && webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "dependencies": {},
   "devDependencies": {
