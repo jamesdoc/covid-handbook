@@ -40,16 +40,8 @@ module.exports = function(eleventyConfig) {
     return i;
   });
 
-  // Set up updates collection
-  eleventyConfig.addCollection("updates", function(collection) {
-    return collection.getAllSorted().filter(function(item) {
-      return item.inputPath.match(/^\.\/src\/updates\//) !== null;
-    });
-  });
-
   eleventyConfig.addLayoutAlias("default", "templates/base.njk");
   eleventyConfig.addLayoutAlias("page", "templates/page.njk");
-  eleventyConfig.addLayoutAlias("post", "templates/post.njk");
 
   // Assets pass-through
   eleventyConfig.addPassthroughCopy("src/assets/icons");
