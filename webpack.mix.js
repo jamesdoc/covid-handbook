@@ -1,6 +1,6 @@
 const mix = require("laravel-mix");
 const tailwindcss = require("tailwindcss");
-const { publicRoot } = require("./config.js");
+const publicRoot = 'dist';
 require("@ayctor/laravel-mix-svg-sprite");
 
 // Set up purgeCSS to rip all the excess that Tailwind creates

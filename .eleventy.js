@@ -1,5 +1,5 @@
 const { DateTime } = require("luxon");
-const { publicRoot } = require("./config.js");
+const publicRoot = 'dist';
 
 module.exports = function(eleventyConfig) {
   // let env = process.env.ELEVENTY_ENV;

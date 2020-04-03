@@ -41,7 +41,7 @@ Also fill out the `about.md` file for giving more information about your collect
 - `npm run seed` - Pulls an inital seed set of data
 - `npm run dev`
 
-you can rehydrate the content from the linked spreadsheet any time with this commend:
+You can rehydrate the content from the linked spreadsheet any time with this commend:
 
 ```bash
 npm run content
@@ -50,6 +50,38 @@ npm run content
 ### ⚠️ Warning
 
 The JSON endpoint provided by the Google Sheet will stop providing data as soon as it hits an empty row. You have been warned.
+
+## Hosting with another service?
+
+As soon as you run `npm run production` everything you need is created in the `/dist` folder. This folder can be copied across into your hosting platform of choice.
+
+### Surge
+
+[Surge](https://surge.sh/) is a quick an easy tool for deploying static sites. You won't get the benefits of automagical deploys straight from the Google Sheet, but one you have Surge installed locally (`npm install -g surge`), you can deploy with:
+
+```bash
+surge dist
+```
+
+Read up on [Surge](https://surge.sh/).
+
+### Self host
+
+Let's say you have a Digital Ocean droplet with Nginx or Apache on it… Once you have cloned this repo you can then run…
+
+```bash
+npm install
+npm run production
+```
+
+Finally update your server config to serve from the `./dist` and everything should be happy.
+
+### Deploy from a different folder?
+
+By default the generated assets will be created in the `dist` folder. I can't imagine why you would want to change that… but if you do you'll need to update `const publicRoot = 'dist';` in the following files:
+
+- `.eleventy.js`
+- `webpack.mix.js`
 
 ## Tech debt
 
