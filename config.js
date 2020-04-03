@@ -2,15 +2,14 @@ const { DateTime } = require("luxon");
 
 module.exports = {
   metadata: {
-    title: "Covid-19: Digital Tools for Church",
-    description:
-      "A crowdsourced index of useful digital communication tools for church leaders, communications teams and church staff to refer to during the coronavirus outbreak.",
+    title: "Covid-19: Digital Tools for the Church",
+    description: "A crowdsourced index of useful digital communication tools for church leaders, communications teams and church staff to refer to during the coronavirus outbreak.",
 
     // you can get this from the URL of your Google sheet
     sheetId: "1Q4o21Cc2xgq9FAaAsahcOAUwByQuAoFDEW5MUpy1ZnE",
     formId: "1FAIpQLSdM6kX91pmBd95hwv7NSr4QicRo-3wo8WNMDLoJ8Y5DGDWJ7g",
-    ogImage: "",
-    rootUrl: "",
+    ogImage: "/assets/img/ogimage.jpg",
+    rootUrl: "https://covid.churcheshandbook.co.uk/",
 
     // Google Tag Manager
     gtm: "GTM-N3WSC3G",

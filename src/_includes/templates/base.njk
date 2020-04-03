@@ -40,7 +40,7 @@
   <body class="no-js" x-data="store()" x-init="init()">
     <header class="siteHeader">
       <h1>
-        <a href="/">{{ metadata.title }}</a>
+        <a href="/">{{ metadata.title | dewidow | safe }}</a>
       </h1>
 
       <button class="siteHeader__navToggle" @click="navDisplayed = !navDisplayed">
