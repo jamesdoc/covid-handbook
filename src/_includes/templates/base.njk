@@ -25,8 +25,8 @@
     <meta name="twitter:title" content="{{ metadata.title }}" />
     <meta name="twitter:description" content="{{ metadata.description }}" />
     <meta property="og:description" content="{{ metadata.description }}" />
-    <meta name="twitter:image" content="{{ metadata.ogImage }}" />
-    <meta property="og:image" content="{{ metadata.ogImage }}" />
+    <meta name="twitter:image" content="{{ metadata.rootUrl }}{{ metadata.ogImage }}" />
+    <meta property="og:image" content="{{ metadata.rootUrl }}{{ metadata.ogImage }}" />
     <meta property="og:image:alt" content="{{ metadata.description }}" />
     <link rel="shortcut icon" href="/favicon.svg" type="image/svg" />
     <link href="https://fonts.googleapis.com/css2?family={{ theme.headingFont | plusify }}&family={{ theme.bodyFont | plusify }}:wght@400;700&display=swap" rel="stylesheet">

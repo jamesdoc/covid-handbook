@@ -8,7 +8,7 @@ module.exports = {
     // you can get this from the URL of your Google sheet
     sheetId: "1Z3OcDa1iqiXnCTvZRH2HOIzFfOn3BgxZB9f6-d5HFNY",
     formId: "1FAIpQLScjCELAdFEej0Ak7zrHo2I13jPhyiN5c4zWmOjyLe68w9__HQ",
-    ogImage: "/assets/img/ogimage.jpg",
+    ogImage: "assets/img/ogimage.jpg",
     rootUrl: "https://covid.churcheshandbook.co.uk/",
 
     // Google Tag Manager
