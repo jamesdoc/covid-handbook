@@ -24,6 +24,11 @@ module.exports = function(eleventyConfig) {
     return s.replace(/ (?=[^ ]*$)/i, "&nbsp;");
   });
 
+  eleventyConfig.addFilter("highlightFirst", s => {
+    const firstWord = s.substr(0,s.indexOf(' '));
+    return s.replace(firstWord, `<span>${firstWord}</span>`);
+  });
+
   eleventyConfig.addFilter("urlEncode", s => {
     return encodeURIComponent(s);
   });

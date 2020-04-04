@@ -7,6 +7,10 @@
 
   h1 {
     @apply uppercase font-heading text-base leading-none;
+
+    span {
+      @apply text-salmon;
+    }
   }
 
   a {
