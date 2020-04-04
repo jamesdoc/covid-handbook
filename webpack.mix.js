@@ -30,7 +30,7 @@ mix.options({
   processCssUrls: false,
   postCss: [
     tailwindcss("./tailwind.config.js"),
-    ...(process.env.NODE_ENV === "production" ? [purgecss] : []) // Only run purgeCSS in production
+    purgecss,
   ],
   autoprefixer: {
     options: {
