@@ -18,7 +18,7 @@
       Go to resource
     </a>
 
-    {{ share.sheet(item.url, item.title) }}
+    {% include "../macro/share_dynamic.njk" %}
   </div>
 
   <div class="resource__actions">

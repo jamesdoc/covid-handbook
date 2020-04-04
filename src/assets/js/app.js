@@ -77,7 +77,6 @@ window.store = function() {
       const iconParent = el.closest(".resource__actions__btn");
       const svgXLink = "http://www.w3.org/1999/xlink";
       const svgUse = iconParent.querySelector(".resource__icon__use");
-      console.log(svgUse);
       let icon = svgUse.getAttribute("xlink:href").split("#");
       const svgSpriteUrl = icon[0];
       icon = icon[1] == "close" ? "share" : "close";

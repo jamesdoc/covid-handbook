@@ -29,7 +29,8 @@
       Go to resource
     </a>
 
-    {{ share.sheet(resource.url, resource.title + " (via https://covid.churcheshandbook.co.uk)") }}
+    {% set shareTitle = resource.title + " (via https://covid.churcheshandbook.co.uk)" %}
+    {{ share.sheet(resource.url, shareTitle) }}
   </div>
 
   <div class="resource__actions">
