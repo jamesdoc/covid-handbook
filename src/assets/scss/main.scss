@@ -3,8 +3,6 @@
 @import "mixins";
 @import "preflight";
 @import "tailwindcss/components";
-/* purgecss end ignore */
-
 @import "highlightBox";
 @import "infobar";
 @import "resource";
@@ -17,5 +15,6 @@
 @import "siteHeader";
 @import "utilities";
 @import "viewOptions";
+/* purgecss end ignore */
 
 @import "tailwindcss/utilities";

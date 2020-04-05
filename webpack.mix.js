@@ -30,6 +30,7 @@ mix.options({
   processCssUrls: false,
   postCss: [
     tailwindcss("./tailwind.config.js"),
+    purgecss,
   ],
   autoprefixer: {
     options: {
