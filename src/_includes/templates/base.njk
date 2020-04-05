@@ -11,6 +11,8 @@
     <link rel="dns-prefetch" href="https://www.googletagmanager.com/" />
     <link rel="dns-prefetch" href="https://www.google-analytics.com/" />
 
+    <link rel="stylesheet" media="screen" type="text/css" href="/assets/css/main.min.css" />
+
     <title>{% if title %}{{ title }} | {% endif %}{{ metadata.title }}</title>
 
     <link rel="author" href="humans.txt" />
@@ -34,8 +36,16 @@
     <meta property="og:image" content="{{ metadata.rootUrl }}{{ metadata.ogImage }}" />
     <meta property="og:image:alt" content="{{ metadata.description }}" />
     <link rel="shortcut icon" href="/favicon.svg" type="image/svg" />
-    <link href="https://fonts.googleapis.com/css2?family={{ theme.headingFont | plusify }}&family={{ theme.bodyFont | plusify }}:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" media="screen" type="text/css" href="/assets/css/main.min.css" />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family={{ theme.headingFont | plusify }}&family={{ theme.bodyFont | plusify }}:wght@400;700&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    {# if there is no JS then we won't get the font flipping over #}
+    <noscript>
+      <linkhref="https://fonts.googleapis.com/css2?family={{ theme.headingFont | plusify }}&family={{ theme.bodyFont | plusify }}:wght@400;700&display=swap" rel="stylesheet"type="text/css"/>
+    </noscript>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     {% if metadata.env != 'dev' %}
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{{ metadata.gtm }}');</script>
